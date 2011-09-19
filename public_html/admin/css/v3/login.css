@@ -1,0 +1,164 @@
+* {
+	margin:0;
+	padding:0;
+}
+html, body {
+	height:100%;
+}
+body {
+	background-color:#ffffff;
+	color:#000000;
+	font-family:Tahoma, sans-serif;
+	font-size:12px;
+	display:table;
+	margin:0 auto;
+}
+
+a {
+	color:#000000;
+}
+a img {
+	border:none;
+}
+
+div#contenedor {
+	margin:0 auto;
+	width:460px;
+	height:100%;
+	display:table-cell;
+	vertical-align: middle;
+}
+
+div#cabezal {
+	position:relative;
+	height:116px;
+	clear:both;
+	padding:50px 40px 0;
+	background:url(/img/fondo_login1) no-repeat top center;
+}
+
+div#cabezal h1 {
+	float:right;
+	width:190px;
+	text-align:right;
+	vertical-align:middle;
+	padding:25px 20px 0 0;
+	font-size:1.5em;
+}
+
+div#cabezal img {
+	float:left;
+	margin:6px 0 0 30px;
+}
+
+div#documento {
+	clear:both;
+	background:url(/img/fondo_login2) no-repeat bottom center;
+}
+
+p#aviso_cont {
+	padding:1em 30px .6em;
+	background:url(/img/fondo_login) repeat-y center center;
+}
+
+fieldset {
+	position:relative;
+	padding:10px 30px 30px;
+	border:0;
+}
+
+legend {
+	display:none;
+}
+
+ul {
+	list-style-type:none;
+	clear:both;
+}
+
+li {
+	float:left;
+	clear:both;
+	margin:.2em auto;
+}
+
+li label, li input, li span {
+	float:left;
+}
+
+li .izq {
+	width:150px;
+	padding-right:6px;
+	text-align:right;
+}
+
+li span, li label {
+	padding:3px;
+}
+
+li .izq input {
+	float:right;
+}
+
+li span#envio {
+	padding-left:7em;
+}
+
+li span#envio input {
+	margin-left:3px;
+}
+
+input[type="text"], input[type="password"] {
+	width:160px;
+	padding:1px;
+	font-family:Tahoma, sans-serif;
+	border:1px solid #666666;
+	background-color:#f2f1f1;
+	color:#555555;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+	border:1px solid #666666;
+	color:#000000;
+	background-color:#ffffff;
+}
+/*
+input.error {
+	background-color:#F29D9D;
+}
+*/
+div.campo_error {
+	position:absolute;
+	left:326px;
+	padding:0 0 8px 9px;
+	background: url(/img/apuntador_error) no-repeat bottom left;
+}
+span.error {
+	white-space:nowrap;
+	color:#500000;
+	background-color:#FFFBAD;
+	border:1px solid #a05050;
+	border-bottom:none;
+}
+
+p#recuperarclave {
+	position:absolute;
+	bottom:0;
+	right:60px;
+	padding:5px;
+}
+
+address {
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+
+address a {
+	font-family:Arial, sans-serif;
+	text-decoration:none;
+}
+
+address a:hover {
+	text-decoration:underline;
+}

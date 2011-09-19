@@ -1,0 +1,5 @@
+#RewriteEngine off
+
+#php_value include_path ".:/home/malelegutierrezdecoracion.com:/usr/local/share/pear"
+#php_value upload_max_filesize "8M"
+#php_value default_mimetype "application/xhtml+xml"

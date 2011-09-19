@@ -1,0 +1,60 @@
+div#paletaDeColores {
+	padding:0;
+	border:1px solid #ccc;
+	position:absolute;
+	display:none;
+	background-color:#fff;
+	width:192px;
+}
+div#paletaDeColores span {
+	float:right;
+font-size:.7em;
+padding-right:2px;
+color:#0055aa;
+}
+div#paletaDeColores span#paletaCerrar {
+	float:right;
+	cursor:pointer;
+padding-right:2px;
+
+}
+div#paletaDeColores table {
+	border-collapse:collapse;
+	clear:both;
+	empty-cells:show;
+}
+div#paletaDeColores table td {
+	padding:0;
+	width: 8px;
+	height: 8px;
+	cursor:crosshair;
+}
+div#paletaDeColores div#paletaMuestra {
+	border:1px solid #000000;
+	margin: 5px;
+	width: 30px;
+	height: 30px;
+	background-color: #000000;
+}
+div#paletaDeColores span#paletaIngresoRGB {
+vertical-align:middle;
+	margin: 5px;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+div#paletaDeColores span#paletaIngresoRGB * {
+display:inline;
+margin:0;
+}
+div#paletaDeColores span#paletaIngresoRGB input {
+font-size:1.5em;
+border:1px solid #ccc;
+}
+
+.muestraColor {
+	border:1px solid #999;
+	width:22px;
+	height:22px;
+	cursor:pointer;
+}

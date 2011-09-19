@@ -1,0 +1,47 @@
+body{
+	margin:0;
+	font-family:Tahoma,Arial, sans-serif;
+	background-color:#d5dbd2;
+}
+
+td, th, a, p, h1, h2, h3 {
+	font-family:Tahoma,Arial, sans-serif;
+	font-size:13px;
+}
+
+.clsNode, .clsNode:visited {
+	color:#000000;
+	font-size:13px;
+	text-decoration:none;
+}
+.clsNode:hover {
+	color:#0000ff;
+	font-size:13px;
+	text-decoration:none;
+}
+/*
+div { font-family : Tahoma, Helvetica; }
+.clsNode { text-decoration: none; font: 7pt verdana; color: black; cursor: default; }
+.clsNode:hover { text-decoration: none; color: black; }
+.ctrl { font-family: tahoma; font-size: 8pt; }
+.ctrl a { color: black; text-decoration: none; }
+.ctrl a:hover { color: red; }
+
+.clsNode, .clsNodeUnhilightable { font-family: tahoma; font-size: 8pt;	text-decoration: none; cursor: hand; color: black }
+.clsNode:hover { text-decoration: none; color: #eeeeee; background-color: #003366 }
+
+.clsNodeGroup { font-family: tahoma; text-decoration: none; font-size: 8pt; color: navy; font-weight: bold; }
+.clsNodeGroup:hover { text-decoration: none; color: white; background-color: navy }
+
+.form { border: 1px solid silver; }
+.form td { font-family: tahoma; font-size: 8pt; }
+.form td input, .form td textarea { border: 1px solid silver; background-color: #F0F0F0; font-family: tahoma; font-size: 8pt; }
+.form td select { background-color: #F0F0F0; font-family: tahoma; font-size: 8pt; }
+
+.form td input.chk { border: none; background-color: transparent; }
+
+.array td { border: 1px solid black; }
+.text td { padding: 0 25px; border: 1px solid black; }
+.text td, .text td p, .text td h2 {
+}
+*/

@@ -1,0 +1,7 @@
+URI: login
+
+URI: login.json.php
+Content-type: application/json; qs=0.8
+
+URI: login.xml.php
+Content-type: application/xml; qs=0.5

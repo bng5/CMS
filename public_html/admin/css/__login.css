@@ -1,0 +1,130 @@
+
+
+
+
+* {
+	margin:0;
+	padding:0;
+}
+html, body {
+	height:100%;
+}
+body {
+	background-color:#ffffff;
+	color:#000000;
+	font-family:Tahoma, sans-serif;
+	font-size:12px;
+}
+a img {
+	border:0;
+}
+#superior {
+	width:470px;
+	height:342px;
+	border-collapse:collapse;
+	background:url(../img/fondo_login) repeat-y center center;
+}
+
+#bienvenida {
+	background:url(../img/fondo_login1) no-repeat top center;
+	padding:62px 25px 0 95px;
+	vertical-align:bottom;
+	height:110px;
+}
+#tdlogin {
+	padding-bottom:20px;
+	background:url(../img/fondo_login2) no-repeat bottom center;
+}
+#logo {
+	float:left;
+	width:110px;
+	height:110px;
+	background:url(../admin_logo) no-repeat center center;
+}
+#descripcion {
+	text-align:left;
+	margin-left:129px;
+	padding:6px;
+	height:98px;
+	line-height:200%;
+}
+#sitio_titulo {
+	font-size:1.5em;
+}
+#etdp {
+	font-family:Arial, sans-serif;
+}
+#etdp a {
+	color:#000000;
+}
+#contenedor {
+	width:100%;
+	height:100%;
+}
+#camposlogin {
+	margin:0 auto;
+	width:300px;
+	list-style-type:none;
+}
+#camposlogin li {
+	float:left;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+#camposlogin li .izq {
+	width:7em;
+	text-align:right;
+	padding-right:4px;
+	float:left;
+}
+
+div#botones {
+	width:300px;
+	margin:0 auto;
+	clear:both;
+}
+
+div#botones table {
+	width:100%;
+}
+#login_error {
+	width:400px;
+	margin:0 auto;
+	font-weight:600;
+	color:#800000;
+}
+#login_error.cargando {
+	color:#336699;
+}
+input[type="text"], input[type="password"] {
+	width:170px;
+	padding:1px;
+	font-family:Tahoma, sans-serif;
+	border:1px solid #666666;
+	background-color:#f2f1f1;
+	color:#555555;
+}
+input[type="text"]:focus, input[type="password"]:focus {
+	border:1px solid #666666;
+	color:#000000;
+	background-color:#ffffff;
+}
+.boton {
+	background-color:#cac9c9;
+	/*border-color:#767676;*/
+	padding:1px 3px;
+	font-family:Tahoma, sans-serif;
+	font-size:12px;
+}
+a {
+	color:#595959;
+	text-decoration:none;
+}
+a:hover {
+	color:#000000;
+	text-decoration:underline;
+}
+div#mantenimiento p {
+	padding:0 45px;
+}

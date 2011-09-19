@@ -1,0 +1,43 @@
+body {
+font-size:0.8em;
+}
+
+table {
+	border-collapse:separate;
+	border-spacing:1px;
+}
+caption {font-size:13px;text-align:right;}
+caption img {padding-right:4px;vertical-align:middle;}
+th {
+	color:#ffffff;
+	padding:4px;
+	text-align:left;
+}
+thead td {
+color:#eeeeee;
+	background-color:#234676;
+	/* url('../img/fondo_th_1.gif') repeat-x;*/
+}
+tbody th {
+	background-color:#6d85a6;
+	/* url('../img/fondo_th_1.gif') repeat-x;*/
+}
+td {
+	padding:4px;
+	background-color:#d6deec;
+}
+td .campo_oculto {
+	border:1px solid #d6deec;
+	background-color:#d6deec;
+	color:#134679;
+	font-family:Tahoma,Arial, sans-serif;
+	cursor:pointer;
+}
+tr.enproceso td {background-color:#ecded6;}
+tr.actual td {background-color:#c6dfce;}
+tr.nofinaliz td {background-color:#eeeeee;}
+tr.sinverificar td {background-color:#d5d5d5;}
+tr.inactivo td {background-color:#e5e5e5;}
+tr.suspendido td {background-color:#eebbbb;}
+tr.sel_fila td {background-color:#e6eefc;color:#444444;}
+td.cotizado {color:#555555;}

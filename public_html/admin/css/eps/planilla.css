@@ -1,0 +1,97 @@
+fieldset.desplegable {
+    border:none;
+}
+fieldset.desplegable ul {
+    display:none;
+}
+fieldset.desplegado {
+    padding:1em;
+}
+fieldset.desplegado ul {
+    list-style-type:none;
+}
+
+.eps_planilla {
+	border-collapse:collapse;
+}
+.eps_planilla th {
+	white-space:nowrap;
+	background-color:#cccccc;
+	border:1px solid #000000;
+}
+.eps_planilla td {
+	padding:0;
+	white-space:nowrap;
+	border:1px solid #cccccc;
+}
+.eps_planilla td input {
+	height:1.4em;
+	border:0;
+	background-color:transparent !important;
+}
+.eps_planilla td input.precio {
+	width:5em;
+	text-align:right;
+}
+
+.eps_planilla td.marca {
+
+}
+.eps_planilla td.marca span.arrastre {
+	cursor:move;
+	background:url(/img/arrastre_celda) no-repeat center left;
+	width:12px;
+	height:20px;
+	float:left;
+}
+
+table.p_borrar tr:hover td {/*, table.p_borrar tr:hover input*/
+	background-color:#FD8282;
+}
+
+div#layerAccion {
+	font:bold 12px sans-serif;
+	padding:3px;
+}
+.aviso_mover {
+	background-color:#80cccc;
+}
+.aviso_agregar {
+	background-color:#28C728;
+}
+.aviso_eliminar {
+	background-color:#FE3A3A;
+}
+
+tr.fila_reservada div {
+	border:0;
+	margin:2px;
+	height:5px;
+}
+tr.fila_reservada:hover div {
+	border:1px dashed #cccccc;
+	margin:2px;
+	height:17px;
+}
+
+tr.mover td {/*, tr.mover input*/
+	background-color:#dfefef;
+}
+
+div.planilla_botones {
+padding:2px;
+}
+div.planilla_botones button {
+border:2px outset transparent;
+background-color:#ffffff;
+padding:1px;
+}
+
+div.planilla_botones button.activo {
+border:2px inset #cccccc;
+background-color:#efefef;
+
+}
+div.planilla_botones button img {
+margin:0;
+}

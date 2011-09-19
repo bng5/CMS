@@ -1,0 +1,102 @@
+<?php
+
+class adminsecciones
+ {
+  public function __construct()
+   {
+	global $seccion_id;
+	$this->seccion = $seccion_id ? $seccion_id : false;
+	$this->separador_niv = "  ";
+	$this->secciones = array();
+	$this->superior = array();
+	$this->actual_superior = array();
+	$mysqli = BaseDatos::Conectar();
+	$tbsubcat = $mysqli->query("SELECT id, nombre, superior_id, link, link_param FROM `admin_secciones` ORDER BY `superior_id`, `orden`"); // or die(mysql_error());  WHERE sistema != 0 OR (info != 0 OR items != 0)
+	if($row_subcat = $tbsubcat->fetch_assoc())
+	 {
+	  do
+	   {
+	    $this->secciones_arr[$row_subcat['id']] = $row_subcat['nombre'];
+	    $this->superior[$row_subcat['id']] = $row_subcat['superior_id'];
+		$this->secciones[$row_subcat['superior_id']][$row_subcat['id']] = $row_subcat;
+	   }while($row_subcat = $tbsubcat->fetch_assoc());
+	 }
+	//if($this->seccion) $this->armado($this->seccion);
+	//$this->imprimir(current($this->secciones));
+   }
+  private function armado($actual)
+   {
+    array_unshift($this->actual_superior, $actual);
+   	do
+   	 {
+   	  $actual = $this->superior[$actual];
+	  array_unshift($this->actual_superior, $actual);
+	 }
+	while($this->superior[$actual] > 0);
+   }
+  public function rearmado($seccion)
+   {
+	array_splice($this->actual_superior, 0);
+	$this->armado($seccion);
+   }
+
+  public function imprimir($subseccion = false, $nivel = 0)
+   {
+    if($subseccion == false) $subseccion = current($this->secciones);
+	echo "\n".str_repeat($this->separador_niv, $nivel)."><ul";
+	foreach($subseccion AS $a)
+	 {
+	  if(!array_key_exists($a['id'], $_SESSION['permisos']['admin_seccion']) && $nivel == 0) continue;
+	  $link = $a['link'];
+	  if($link == "listar") $link .= "?seccion={$a['id']}";
+	  //$link .= $a['link_param'] ? "?".$a['link_param'] : "";
+	  echo "\n".str_repeat($this->separador_niv, $nivel)."><li'.\$seleccionado[{$a['id']}].'><a href=\"".APU.$link."\"";
+	  //if(current($this->actual_superior) == $a['id'] || $this->seccion == $a['id'])
+	  // {
+	  //  
+	    echo "'.\$seleccionado[{$a['id']}].'>{$a['nombre']}</a";
+	    if(is_array($this->secciones[$a['id']]))
+	     {
+	      array_shift($this->actual_superior);
+		  $this->imprimir($this->secciones[$a['id']], ++$nivel);
+		  $nivel--;
+		 }
+	  // }
+	  //else echo ">{$a['nombre']}</a";
+	  echo "></li";
+	 }
+	echo "\n".str_repeat($this->separador_niv, $nivel)."></ul\n";
+   }
+
+  public function __toString()
+   {
+    return $this->titulo ? $this->titulo : "Título";
+   }
+ }
+
+$secciones = new adminsecciones();
+$secciones_nombres = $secciones->secciones_arr;//var_export($secciones->ssecciones_arr, false);
+$secciones_nombres_d = var_export($secciones->secciones_arr, true);
+
+function guardar_encabezado($bufer)
+ {
+  global $incluir, $secciones_nombres_d, $seleccionado;//, $seleccionadoUlt;
+  $outfile = fopen(RUTA_CARPETA.$incluir, "w");
+  if($outfile)
+   {
+	$et_php = array("'.", ".'");
+	$et_php_remp = array("<?php echo ", " ?>");
+	fwrite($outfile, "<?php\n\$seleccionado[\$seccion_id] = \" class=\\\"activo\\\"\";\n\$secciones_nombres = {$secciones_nombres_d};\n?>\n".str_replace($et_php, $et_php_remp, $bufer));
+	fclose($outfile);
+   }
+  eval("\$bufer = '$bufer';");
+  return $bufer;
+ }
+
+ob_start("guardar_encabezado");
+$seleccionado[$seccion_id] = " class=\"activo\"";
+//$seleccionadoUlt[$seccion_id] = " seleccionado";
+$secciones->imprimir();
+ob_end_flush();
+
+?>

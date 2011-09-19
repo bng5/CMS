@@ -1,0 +1,4 @@
+#AddHandler type-map .var
+
+RewriteEngine on
+RewriteRule ^(.+)$ $1\.php [T=%{HTTP_ACCEPT}]
