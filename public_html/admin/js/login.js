@@ -68,7 +68,8 @@ function loginAcceso(formulario) {
         if(envio.readyState == 4)
             loginRespuesta(envio);//, params eval(hand+"(pet, elAviso)");
     };
-    envio.open("POST", '/api/v1/login', true);
+    // ruta
+    envio.open("POST", 'api/v1/login', true);
     envio.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     envio.setRequestHeader('Accept', 'application/json, application/*; q=0.1');
     envio.send(datos.join("&"));
@@ -86,8 +87,10 @@ function loginRespuesta(request) {
             loginaviso.firstChild.data = LOGIN_TEXTOS[1];
             deshabilitarFormLogin(false);
         }
-        else
-            document.location.href = '/login?ref='+document.forms[0].elements[1].value;//encodeURIComponent()
+        else {
+            // ruta
+            document.location.href = 'login?ref='+document.forms[0].elements[1].value;//encodeURIComponent()
+        }
         return;
     }
     deshabilitarFormLogin(false);

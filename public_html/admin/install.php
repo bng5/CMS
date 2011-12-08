@@ -33,6 +33,7 @@ include('inc/iniciar.php');
         <li>img/ <?php echo is_writable(RUTA_CARPETA.'img/') ? 'Correcto' : ERROR; ?></li>
         <li>iacache/ <?php echo is_writable(RUTA_CARPETA.'iacache/') ? 'Correcto' : ERROR; ?></li>
         <li>bng5/datos/ <?php echo is_writable(RUTA_CARPETA.'bng5/datos/') ? 'Correcto' : ERROR; ?></li>
+        <li>public_html/archivos/ <?php echo is_writable(RUTA_CARPETA.'public_html/archivos/') ? 'Correcto' : ERROR; ?></li>
         <li>public_html/img/ 
             <ul>
                 <li>public_html/img/0/ <?php echo is_writable(RUTA_CARPETA.'public_html/img/0/') ? 'Correcto' : ERROR; ?></li>

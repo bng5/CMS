@@ -508,6 +508,7 @@ function remplazoImg(errorno, imagenId, imagenArchivo, frame, carpeta)
 	  if(document.forms['en']['img_editando'].value != inputs[i]['value']) continue;
 	  var imagen = inputs[i];
      }
+     // ruta
     imagen.src = 'imagen/img/'+carpeta+'/'+imagenArchivo; //+'&max=120';
     imagen.alt = imagenArchivo;
     imagen.title = imagenArchivo;
@@ -544,6 +545,7 @@ function imgCargada(errorno, imagenId, imagenArchivo, frame, carpeta)
    	var sep = document.createElement('span');
     var imagen = document.createElement('input');
     imagen.setAttribute("type", "image");
+    // ruta
     imagen.src = 'imagen/img/'+carpeta+'/'+imagenArchivo; //+'&max=120';
 	imagen.setAttribute("value", imagenId);
     imagen.setAttribute("alt", imagenArchivo);

@@ -193,12 +193,14 @@ function listaColapsar(el)
   if(superior.className == 'linea')
    {
    	superior.className = 'linea colapsada';
-   	el.src = '/img/c';
+    // ruta
+   	el.src = 'img/c';
    }
   else
    {
    	superior.className = 'linea';
-   	el.src = '/img/e';
+    // ruta
+   	el.src = 'img/e';
    }
   return false;
  }

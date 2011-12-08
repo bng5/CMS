@@ -8,7 +8,7 @@
 
 </head>
 <body>
-<noscript><div id="no_js_alerta"><img src="/img/warning" alt="" /> Para visualizar correctamente este sitio su navegador debe contar con <b>JavaScript</b> habilitado.</div></noscript>
+<noscript><div id="no_js_alerta"><img src="img/warning" alt="" /> Para visualizar correctamente este sitio su navegador debe contar con <b>JavaScript</b> habilitado.</div></noscript>
 <div id="cabezal_der">
  <div id="cabezal_izq">
   <div id="cabezal">

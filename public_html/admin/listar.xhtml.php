@@ -163,7 +163,7 @@ if($seccion = DB_Secciones::obtenerSeccion(1, array('id' => (int) $_REQUEST['sec
             if(!$result = $mysqli->query("SELECT icn.nombre, ic.seccion_id FROM items_categorias ic LEFT JOIN items_categorias_nombres icn ON ic.id = icn.id AND leng_id = 1 WHERE ic.id = {$_GET['eliminarcat']} LIMIT 1"))
                 die(__LINE__." - ".$mysqli->error);
             if($fila = $result->fetch_row()) {
-                echo("<form action=\"/listar?".htmlspecialchars($_SERVER['QUERY_STRING'])."\" method=\"post\"><input type=\"hidden\" name=\"conf\" value=\"1\" /><fieldset id=\"confirmacion\"><legend>Borrar categoría <b>{$fila[0]}</b></legend>");
+                echo("<form action=\"listar?".htmlspecialchars($_SERVER['QUERY_STRING'])."\" method=\"post\"><input type=\"hidden\" name=\"conf\" value=\"1\" /><fieldset id=\"confirmacion\"><legend>Borrar categoría <b>{$fila[0]}</b></legend>");
                 //if(!$resultcat = $mysqli->query("(SELECT 'i', COUNT(*) FROM items_a_categorias iac WHERE iac.categoria_id = {$_GET['eliminarcat']}) UNION (SELECT 'c', COUNT(*) FROM items_categorias ic WHERE ic.superior = {$_GET['eliminarcat']})")) die(__LINE__." - ".$mysqli->error);
                 if(!$resultcat = $mysqli->query("SELECT COUNT(*) FROM items_categorias ic WHERE ic.superior = {$_GET['eliminarcat']}"))
                     die(__LINE__." - ".$mysqli->error);
@@ -481,7 +481,7 @@ SELECT i.id, i.estado_id, i.f_creado, i.f_modificado, i.orden, iv1.`string`, im.
         if($fila = $consulta->fetch_row()) {
             $tiempo = time();
             echo("		<!-- style=\"\" display:none; -->
-		<form action=\"/listar?seccion={$_REQUEST['seccion']}&amp;cat={$cat}&amp;pagina={$pagina}\" method=\"post\" onsubmit=\"return contarCheck('lista_item[]');\">
+		<form action=\"listar?seccion={$_REQUEST['seccion']}&amp;cat={$cat}&amp;pagina={$pagina}\" method=\"post\" onsubmit=\"return contarCheck('lista_item[]');\">
 		<table class=\"tabla\" id=\"tablaListado\" style=\"width:auto;\"");// style=\"display:none;\"
 	  //		 ><caption><select name=\"\"><option value=\"\"></option></select></caption
 	  //		 ><caption><img src=\"/img/pregunta_inactivo\" onmouseover=\"this.src='/img/pregunta_activo';document.getElementById('tablaReferencia').style.display='block'\" onmouseout=\"this.src='/img/pregunta_inactivo';document.getElementById('tablaReferencia').style.display='none'\" alt=\"Referencia\" /></caption
@@ -526,7 +526,7 @@ SELECT i.id, i.estado_id, i.f_creado, i.f_modificado, i.orden, iv1.`string`, im.
 		   ><td style=\"text-align:center;\"><input type=\"checkbox\" name=\"lista_item[]\" value=\"{$fila[0]}\" onclick=\"selFila(this, '{$clase_estado[$fila[1]]}');\" /></td");
                 if(!count($attrs_lista)) {
                     echo("
-		   ><td><a href=\"/editar?seccion={$seccion_id}&amp;id={$fila[0]}{$items_link}\">{$fila[0]}</a></td");
+		   ><td><a href=\"editar?seccion={$seccion_id}&amp;id={$fila[0]}{$items_link}\">{$fila[0]}</a></td");
                 }
                 else {
                     $n = 5;
@@ -537,14 +537,14 @@ SELECT i.id, i.estado_id, i.f_creado, i.f_modificado, i.orden, iv1.`string`, im.
                             if($attrs_lista[1])// || $attrs_lista[21])
                                 echo("<img src=\"icono/2/{$fila[$n]}\" alt=\"\" />");
                             else {
-                                echo("<a href=\"/editar?seccion={$seccion_id}&amp;id={$fila[0]}{$items_link}\"><img src=\"icono/2/{$fila[$n]}\" alt=\"\" /></a>");
+                                echo("<a href=\"editar?seccion={$seccion_id}&amp;id={$fila[0]}{$items_link}\"><img src=\"icono/2/{$fila[$n]}\" alt=\"\" /></a>");
                                 $linkeado = true;
                             }
                         }
                         else {
                             $txt = $fila[$n] ? htmlspecialchars($fila[$n]) : "id: {$fila[0]}";
                             if(!$linkeado) {
-                                echo("<a href=\"/editar?seccion={$seccion_id}&amp;id={$fila[0]}{$items_link}\">{$txt}</a>");
+                                echo("<a href=\"editar?seccion={$seccion_id}&amp;id={$fila[0]}{$items_link}\">{$txt}</a>");
                                 $linkeado = true;
                             }
                             else
@@ -560,7 +560,7 @@ SELECT i.id, i.estado_id, i.f_creado, i.f_modificado, i.orden, iv1.`string`, im.
             echo("
 		   ><td>".$creado->format("d-m-Y G:i")." hs.</td
 		   ><td>".$modificado->format("d-m-Y G:i")." hs.</td
-		   ><td><input type=\"text\" value=\"{$f_orden}\" size=\"3\" /><img src=\"/img/flecha_bt\" onclick=\"document.location.href='/listar?seccion={$seccion_id}{$items_link}&amp;pagina={$pagina}&amp;n_orden={$fila[0]},{$f_orden},'+this.previousSibling.value\" alt=\"\" /></td
+		   ><td><input type=\"text\" value=\"{$f_orden}\" size=\"3\" /><img src=\"/img/flecha_bt\" onclick=\"document.location.href='listar?seccion={$seccion_id}{$items_link}&amp;pagina={$pagina}&amp;n_orden={$fila[0]},{$f_orden},'+this.previousSibling.value\" alt=\"\" /></td
 		   ></tr");
             }while($fila = $consulta->fetch_row());
         echo("
@@ -575,11 +575,11 @@ SELECT i.id, i.estado_id, i.f_creado, i.f_modificado, i.orden, iv1.`string`, im.
   <div id="paginador">Páginas:');
 
         if($pagina > 1)
-            echo("<a href=\"/listar?seccion={$seccion_id}&amp;pagina=".($pagina - 1)."{$items_link}\">Anterior</a> ");
+            echo("<a href=\"listar?seccion={$seccion_id}&amp;pagina=".($pagina - 1)."{$items_link}\">Anterior</a> ");
         for($p = 1; $p <= $paginas; $p++)
-            echo(($p == $pagina) ? "<b>{$p}</b> " : "<a href=\"/listar?seccion={$seccion_id}&amp;pagina={$p}{$items_link}\">{$p}</a> ");
+            echo(($p == $pagina) ? "<b>{$p}</b> " : "<a href=\"listar?seccion={$seccion_id}&amp;pagina={$p}{$items_link}\">{$p}</a> ");
         if($pagina < $paginas)
-            echo("<a href=\"/listar?seccion={$seccion_id}&amp;pagina=".($pagina + 1)."{$items_link}\">Siguiente</a> ");
+            echo("<a href=\"listar?seccion={$seccion_id}&amp;pagina=".($pagina + 1)."{$items_link}\">Siguiente</a> ");
 
         echo('</div>
 	 </form>');

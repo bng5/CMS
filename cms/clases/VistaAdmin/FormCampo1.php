@@ -68,7 +68,6 @@ class VistaAdmin_FormCampo1 extends VistaAdmin_Form {
 		}
 		// else
 
-
 		//}
 		//array_push($this->niveles, $this->superior);
 		array_push($this->niveles, $this->id);

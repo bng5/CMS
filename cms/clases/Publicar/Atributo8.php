@@ -17,11 +17,11 @@ class Publicar_Atributo8 extends Publicar_Atributo {
 		}
 		elseif($attr_v['unico'] == 1) {
 			$item[$attr_k] = $prot_arr[$valores['int']].$valores['text'];
-			if($attr_v['en_listado'])
-				$db_item['link__'.$attr_v['identificador']] = "'".$mysqli->real_escape_string($item[$attr_k])."'";
+			if($attr_v['en_listado']) {
+                $mysqli = BaseDatos::Conectar();
+				$db_item['link__'.$attr_v['identificador']] = $valores['text'] ? "'".$mysqli->real_escape_string($item[$attr_k])."'" : 'NULL';
+            }
 		}
 	}
 
 }
-
-?>

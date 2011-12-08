@@ -1,3 +1,9 @@
+
+if(!window.console || !console.log) {
+    console = {log: function() {}};
+}
+
+
 // clase Ajast
 function Ajast(url, parametros) {
     this.loadImg = false;
@@ -33,6 +39,9 @@ Ajast.prototype.RemoverTag = function() {
     this.tag.parentNode.removeChild(this.tag);
 }
 // /clase Ajast
+
+
+
 
 // Última función para envío de POST vía AJAX
 function enviarXHR(url, hand, datos, contenidoTipo, params) {

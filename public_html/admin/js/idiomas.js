@@ -33,7 +33,8 @@ function mostrarListaIdiomas()
   else
    {
 	var img = new Image();
-	img.src = '/img/silk/ajax-loader';
+    // ruta
+	img.src = 'img/silk/ajax-loader';
 	txtEnlace.parentNode.parentNode.appendChild(img);
 	var ajast = new Ajast('http://bng5.net/cms2/api/v1/recursos/idiomas', {callback: 'crearArbolIdiomas'});
 	ajast.loadImg = img;
@@ -70,7 +71,8 @@ function idiomasAgLista(lista, contenedor, nivel)
 	if(lista[i]['regiones'])
 	 {
 	  flecha = new Image();
-	  flecha.src = '/img/c';
+      // ruta
+	  flecha.src = 'img/c';
 	  flecha.addEventListener('click', expandir, false);
 	  li.insertBefore(flecha, li.firstChild);
 
@@ -173,12 +175,14 @@ function expandir(event)
   if(superior.className == 'expandido')
    {
    	superior.className = '';
-   	img_el.src = '/img/c';
+    // ruta
+   	img_el.src = 'img/c';
    }
   else
    {
    	superior.className = 'expandido';
-   	img_el.src = '/img/e';
+    // ruta
+   	img_el.src = 'img/e';
    }
   return false;
  }

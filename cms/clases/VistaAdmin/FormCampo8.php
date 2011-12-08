@@ -33,7 +33,7 @@ class VistaAdmin_FormCampo8 extends VistaAdmin_Form {
 			$prot_str .= "</select>";
 		}
 
-		return $this->label(0, $this->campo_id_pref.$this->indice)."<td>{$prot_str} <input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}\" value=\"".htmlspecialchars($this->valores[0]['text'])."\" size=\"45\" /> <a href=\"#\" target=\"_blank\" onclick=\"return abrirEnlace(this)\"><img src=\"/img/externo\" alt=\"Abrir enlace\" class=\"enlace_img\" /></a></td>";// tabindex=\"2\"
+		return $this->label(0, $this->campo_id_pref.$this->indice)."<td>{$prot_str} <input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}\" value=\"".htmlspecialchars($this->valores[0]['text'])."\" size=\"45\" /> <a href=\"#\" target=\"_blank\" onclick=\"return abrirEnlace(this)\"><img src=\"img/externo\" alt=\"Abrir enlace\" class=\"enlace_img\" /></a></td>";// tabindex=\"2\"
 	}
 
 }

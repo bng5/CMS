@@ -29,6 +29,7 @@ function abrirPop(itemId)
  {
   var ancho = 550;
   var alto = 700;
-  ventanaModal = window.open('/ver_item?id='+itemId, 'item', "toolbar=no, location=no, directories=no, status=yes, menubar=no, scrollbars=yes, resizable=yes, width="+ancho+",height="+alto+",left="+((screen.width/2)-(ancho/2))+",top="+((screen.height/2)-(alto/2)));
+  // ruta
+  ventanaModal = window.open('ver_item?id='+itemId, 'item', "toolbar=no, location=no, directories=no, status=yes, menubar=no, scrollbars=yes, resizable=yes, width="+ancho+",height="+alto+",left="+((screen.width/2)-(ancho/2))+",top="+((screen.height/2)-(alto/2)));
   return ventanaModal ? false : true;
  }

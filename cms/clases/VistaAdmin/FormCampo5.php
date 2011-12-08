@@ -93,19 +93,19 @@ class VistaAdmin_FormCampo5 extends VistaAdmin_Form {
         if ($this->extra['f']) {
             $retorno .= '
   <div>
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'**\',\'**\',\'Texto en negrita\')" title="Texto en negrita"><img src="/img/silk/text_bold" alt="Texto en negrita" /></button>
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'//\',\'//\',\'Texto en cursiva\')" title="Texto en cursiva"><img src="/img/silk/text_italic" alt="Texto en cursiva" /></button>
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'__\',\'__\',\'Texto subrayado\')" title="Texto subrayado"><img src="/img/silk/text_underline" alt="Texto subrayado" /></button>
-   <button type="button" onclick="insertarEnlace(actual[\''.$this->campo_id_pref.$this->indice.'_\'])" title="Enlace externo"><img src="/img/silk/link" alt="Enlace externo" /></button>';
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'**\',\'**\',\'Texto en negrita\')" title="Texto en negrita"><img src="img/silk/text_bold" alt="Texto en negrita" /></button>
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'//\',\'//\',\'Texto en cursiva\')" title="Texto en cursiva"><img src="img/silk/text_italic" alt="Texto en cursiva" /></button>
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'__\',\'__\',\'Texto subrayado\')" title="Texto subrayado"><img src="img/silk/text_underline" alt="Texto subrayado" /></button>
+   <button type="button" onclick="insertarEnlace(actual[\''.$this->campo_id_pref.$this->indice.'_\'])" title="Enlace externo"><img src="img/silk/link" alt="Enlace externo" /></button>';
             if ($this->extra['largo']) {
                 $retorno .= '
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n== \',\' ==\n\',\'Texto de titular\')" title="Titular de nivel 2"><img src="/img/silk/text_heading_2" alt="Titular de nivel 2" /></button>
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n=== \',\' ===\n\',\'Texto de titular\')" title="Titular de nivel 3"><img src="/img/silk/text_heading_3" alt="Titular de nivel 2" /></button>
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n==== \',\' ====\n\',\'Texto de titular\')" title="Titular de nivel 4"><img src="/img/silk/text_heading_4" alt="Titular de nivel 2" /></button>
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n===== \',\' =====\n\',\'Texto de titular\')" title="Titular de nivel 5"><img src="/img/silk/text_heading_5" alt="Titular de nivel 2" /></button>
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n====== \',\' ======\n\',\'Texto de titular\')" title="Titular de nivel 6"><img src="/img/silk/text_heading_6" alt="Titular de nivel 2" /></button>
-   <!-- button type="button" onclick="agAdjunto(this, 3, \'/subir_imagen\', actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'imgAreaTexto\')" title="Imagen incorporada"><img src="/img/silk/image" alt="Imagen incorporada" /></button --><!-- abrirModal(\'./examinar/3/2\', 680, 450) -->
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'] ,\'¶\' ,\'\',\'\')" title="Marca de corte"><img src="/img/silk/pilcrow" alt="Marca de corte" /></button>';
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n== \',\' ==\n\',\'Texto de titular\')" title="Titular de nivel 2"><img src="img/silk/text_heading_2" alt="Titular de nivel 2" /></button>
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n=== \',\' ===\n\',\'Texto de titular\')" title="Titular de nivel 3"><img src="img/silk/text_heading_3" alt="Titular de nivel 2" /></button>
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n==== \',\' ====\n\',\'Texto de titular\')" title="Titular de nivel 4"><img src="img/silk/text_heading_4" alt="Titular de nivel 2" /></button>
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n===== \',\' =====\n\',\'Texto de titular\')" title="Titular de nivel 5"><img src="img/silk/text_heading_5" alt="Titular de nivel 2" /></button>
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'\n====== \',\' ======\n\',\'Texto de titular\')" title="Titular de nivel 6"><img src="img/silk/text_heading_6" alt="Titular de nivel 2" /></button>
+   <!-- button type="button" onclick="agAdjunto(this, 3, \'/subir_imagen\', actual[\''.$this->campo_id_pref.$this->indice.'_\'], \'imgAreaTexto\')" title="Imagen incorporada"><img src="img/silk/image" alt="Imagen incorporada" /></button --><!-- abrirModal(\'./examinar/3/2\', 680, 450) -->
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'] ,\'¶\' ,\'\',\'\')" title="Marca de corte"><img src="img/silk/pilcrow" alt="Marca de corte" /></button>';
             }
             $retorno .= '
   </div>';
@@ -118,25 +118,25 @@ class VistaAdmin_FormCampo5 extends VistaAdmin_Form {
             //insertTags(\''.$this->campo_id_pref.$this->indice.'_'.$i.'\' ,\'[[\',\']]\',\'http://www.ejemplo.com|Título del enlace\')
             //insertTags(\''.$this->campo_id_pref.$this->indice.'_'.$i.'\' ,\'{{\',\'}}\',\'Ejemplo.jpg\')
         }
-        if ($this->unico == 1) {
-
-
+        if($this->unico == 1) {
             $nombre_campo = $this->valores[0] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
             $retorno .= "
-	<textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}\" rows=\"20\" cols=\"55\">" . htmlspecialchars($this->valores[0]['text']) . "</textarea>";
-        } elseif ($this->unico == 2) {
+	<textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}\" rows=\"20\" cols=\"55\">" . htmlspecialchars($this->valores[0]['text']) . "</textarea>
+    <script type=\"text/javascript\"> actual['{$this->campo_id_pref}{$this->indice}_'] = '{$this->campo_id_pref}{$this->indice}'; </script>";
+        }
+        elseif ($this->unico == 2) {
             $retorno .= '<ul class="lista_idiomas">';
             $i = 1;
             $estilo = " style=\"display:block;\"";
             $seleccionado = " seleccionado";
             $tot_lengs = count($this->lenguajes);
             foreach ($this->lenguajes AS $leng_id => $leng) {
-                $nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][${leng_id}][]";
+                $nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][{$leng_id}][]";
                 $retorno .= "<li>";
                 if ($tot_lengs > 1)
-                    $retorno .= "<label id=\"p{$this->campo_id_pref}{$this->indice}_${i}\" for=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"etiqueta_idioma${seleccionado}\" onclick=\"mostrarTxt('{$this->campo_id_pref}{$this->indice}_', ${i})\">{$leng[0]}</label>";
+                    $retorno .= "<label id=\"p{$this->campo_id_pref}{$this->indice}_{$i}\" for=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"etiqueta_idioma{$seleccionado}\" onclick=\"mostrarTxt('{$this->campo_id_pref}{$this->indice}_', {$i})\">{$leng[0]}</label>";
                 $retorno .= "
-<textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"areadetexto\" rows=\"20\" cols=\"55\"{$estilo} lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\">" . htmlspecialchars($this->valores[$leng_id]['text']) . "</textarea></li>";
+<textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"areadetexto\" rows=\"20\" cols=\"55\"{$estilo} lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\">" . htmlspecialchars($this->valores[$leng_id]['text']) . "</textarea></li>";
                 $i++;
                 $estilo = " style=\"display:none;\"";
                 $seleccionado = "";
@@ -157,7 +157,7 @@ class VistaAdmin_FormCampo5 extends VistaAdmin_Form {
       }
       //if($nm == "nombre") $this->label = "<label class=\"td\">{$val}:</label>\n";
       //else
-      if($nm == "id") $this->v = '['.$val.'][]'; //$v = $v_id ? "[m][${tipo}][${v_id}]" : "[${id}][]";
+      if($nm == "id") $this->v = '['.$val.'][]'; //$v = $v_id ? "[m][{$tipo}][{$v_id}]" : "[{$id}][]";
       }
      */
 
@@ -171,17 +171,17 @@ class VistaAdmin_FormCampo5 extends VistaAdmin_Form {
         if ($this->extra['f']) {
             $retorno .= '
   <div>
-   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'],\'**\',\'**\',\'Texto en negrita\')" title="Texto en negrita"><img src="/img/silk/text_bold" alt="Texto en negrita" /></button>
-   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'//\',\'//\',\'Texto en cursiva\')" title="Texto en cursiva"><img src="/img/silk/text_italic" alt="Texto en cursiva" /></button>
-   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'__\',\'__\',\'Texto subrayado\')" title="Texto subrayado"><img src="/img/silk/text_underline" alt="Texto subrayado" /></button>
-   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'\n== \',\' ==\n\',\'Texto de titular\')" title="Titular de nivel 2"><img src="/img/silk/text_heading_2" alt="Titular de nivel 2" /></button>
-   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'\n=== \',\' ===\n\',\'Texto de titular\')" title="Titular de nivel 3"><img src="/img/silk/text_heading_3" alt="Titular de nivel 2" /></button>
-   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'\n==== \',\' ====\n\',\'Texto de titular\')" title="Titular de nivel 4"><img src="/img/silk/text_heading_4" alt="Titular de nivel 2" /></button>
-   <button type="button" onclick="insertTags(\'' . $this->campo_id_pref . $this->indice . '_' . $i . '\' ,\'\n===== \',\' =====\n\',\'Texto de titular\')" title="Titular de nivel 5"><img src="/img/silk/text_heading_5" alt="Titular de nivel 2" /></button>
-   <button type="button" onclick="insertTags(\'' . $this->campo_id_pref . $this->indice . '_' . $i . '\' ,\'\n====== \',\' ======\n\',\'Texto de titular\')" title="Titular de nivel 6"><img src="/img/silk/text_heading_6" alt="Titular de nivel 2" /></button>
-   <button type="button" onclick="insertarEnlace(\'' . $this->campo_id_pref . $this->indice . '_' . $i . '\')" title="Enlace externo"><img src="/img/silk/link" alt="Enlace externo" /></button>
-   <button type="button" onclick="agAdjunto(this, 3, \'/subir_imagen\', ' . $this->indice . ', \'imgAreaTexto\')" title="Imagen incorporada"><img src="/img/silk/image" alt="Imagen incorporada" /></button><!-- abrirModal(\'./examinar/3/2\', 680, 450) -->
-   <button type="button" onclick="insertTags(\'' . $this->campo_id_pref . $this->indice . '_' . $i . '\' ,\'¶\' ,\'\',\'\')" title="Marca de corte"><img src="/img/silk/pilcrow" alt="Marca de corte" /></button>
+   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'],\'**\',\'**\',\'Texto en negrita\')" title="Texto en negrita"><img src="img/silk/text_bold" alt="Texto en negrita" /></button>
+   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'//\',\'//\',\'Texto en cursiva\')" title="Texto en cursiva"><img src="img/silk/text_italic" alt="Texto en cursiva" /></button>
+   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'__\',\'__\',\'Texto subrayado\')" title="Texto subrayado"><img src="img/silk/text_underline" alt="Texto subrayado" /></button>
+   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'\n== \',\' ==\n\',\'Texto de titular\')" title="Titular de nivel 2"><img src="img/silk/text_heading_2" alt="Titular de nivel 2" /></button>
+   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'\n=== \',\' ===\n\',\'Texto de titular\')" title="Titular de nivel 3"><img src="img/silk/text_heading_3" alt="Titular de nivel 2" /></button>
+   <button type="button" onclick="insertTags(actual[\'' . $this->campo_id_pref . $this->indice . '_\'] ,\'\n==== \',\' ====\n\',\'Texto de titular\')" title="Titular de nivel 4"><img src="img/silk/text_heading_4" alt="Titular de nivel 2" /></button>
+   <button type="button" onclick="insertTags(\'' . $this->campo_id_pref . $this->indice . '_' . $i . '\' ,\'\n===== \',\' =====\n\',\'Texto de titular\')" title="Titular de nivel 5"><img src="img/silk/text_heading_5" alt="Titular de nivel 2" /></button>
+   <button type="button" onclick="insertTags(\'' . $this->campo_id_pref . $this->indice . '_' . $i . '\' ,\'\n====== \',\' ======\n\',\'Texto de titular\')" title="Titular de nivel 6"><img src="img/silk/text_heading_6" alt="Titular de nivel 2" /></button>
+   <button type="button" onclick="insertarEnlace(\'' . $this->campo_id_pref . $this->indice . '_' . $i . '\')" title="Enlace externo"><img src="img/silk/link" alt="Enlace externo" /></button>
+   <button type="button" onclick="agAdjunto(this, 3, \'/subir_imagen\', ' . $this->indice . ', \'imgAreaTexto\')" title="Imagen incorporada"><img src="img/silk/image" alt="Imagen incorporada" /></button><!-- abrirModal(\'./examinar/3/2\', 680, 450) -->
+   <button type="button" onclick="insertTags(\'' . $this->campo_id_pref . $this->indice . '_' . $i . '\' ,\'¶\' ,\'\',\'\')" title="Marca de corte"><img src="img/silk/pilcrow" alt="Marca de corte" /></button>
   </div>';
 
             //insertTags(\''.$this->campo_id_pref.$this->indice.'_'.$i.'\' ,\'[[\',\']]\',\'http://www.ejemplo.com|Título del enlace\')
@@ -193,13 +193,12 @@ class VistaAdmin_FormCampo5 extends VistaAdmin_Form {
         $seleccionado = " seleccionado";
         $tot_lengs = count($this->lenguajes);
         foreach ($this->lenguajes AS $leng_id => $leng) {
-            $nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][${leng_id}][]";
+            $nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][{$leng_id}][]";
             $retorno .= "<li>";
             if ($tot_lengs > 1)
-                $retorno .= "<label id=\"p{$this->campo_id_pref}{$this->indice}_${i}\" for=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"etiqueta_idioma${seleccionado}\" onclick=\"mostrarTxt('{$this->campo_id_pref}{$this->indice}_', ${i})\">{$leng[0]}</label>";
-
+                $retorno .= "<label id=\"p{$this->campo_id_pref}{$this->indice}_{$i}\" for=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"etiqueta_idioma{$seleccionado}\" onclick=\"mostrarTxt('{$this->campo_id_pref}{$this->indice}_', {$i})\">{$leng[0]}</label>";
             $retorno .= "
-<textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"areadetexto\" rows=\"20\" cols=\"55\"{$estilo} lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\">" . htmlspecialchars($this->valores[$leng_id]['text']) . "</textarea></li>";
+<textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"areadetexto\" rows=\"20\" cols=\"55\"{$estilo} lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\">" . htmlspecialchars($this->valores[$leng_id]['text']) . "</textarea></li>";
             $i++;
             $estilo = " style=\"display:none;\"";
             $seleccionado = "";

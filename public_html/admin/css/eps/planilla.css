@@ -39,7 +39,7 @@ fieldset.desplegado ul {
 }
 .eps_planilla td.marca span.arrastre {
 	cursor:move;
-	background:url(/img/arrastre_celda) no-repeat center left;
+	background:url('../img/arrastre_celda') no-repeat center left;
 	width:12px;
 	height:20px;
 	float:left;
@@ -82,16 +82,15 @@ div.planilla_botones {
 padding:2px;
 }
 div.planilla_botones button {
-border:2px outset transparent;
-background-color:#ffffff;
-padding:1px;
+    border:2px outset transparent;
+    background-color:#ffffff;
+    padding:1px;
 }
 
 div.planilla_botones button.activo {
-border:2px inset #cccccc;
-background-color:#efefef;
-
+    border:2px inset #cccccc;
+    background-color:#efefef;
 }
 div.planilla_botones button img {
-margin:0;
+    margin:0;
 }

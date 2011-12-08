@@ -25,8 +25,6 @@ class Publicar_Atributo7 extends Publicar_Atributo {
 				$db_item['date__'.$attr_v['identificador']] = ($valores['date'] ? "'".$valores['date']."'" : 'NULL');
 				$db_item['string__'.$attr_v['identificador']] = ($valores['date'] ? "'".$item[$attr_k]['str']."'" : 'NULL');
 
-
-
 //                $mysqli = BaseDatos::Conectar();
 //                $db_item['string__'.$attr_v['identificador']] = $valores['string'] ? "'".$mysqli->real_escape_string($valores['string'])."'" : 'NULL';
 

@@ -12,23 +12,24 @@
 //$sel_seccion[$seccion] = " class=\"activo\"";
 
 ?>
- <link rel="stylesheet" type="text/css" href="/css/ia.css" />
- <script type="text/javascript" src="/js/ia.js"></script>
+ <link rel="stylesheet" type="text/css" href="css/ia.css" />
+ <script type="text/javascript" src="js/ia.js"></script>
  <?php
 
-if($seccion) echo "<script type=\"text/javascript\" src=\"/js/${seccion}.js\" charset=\"utf-8\"></script>";
+if($seccion)
+    echo "<script type=\"text/javascript\" src=\"js/{$seccion}.js\" charset=\"utf-8\"></script>";
 
 ?>
 
- <link rel="stylesheet" type="text/css" media="all" href="/css/calendario.css" />
- <link rel="stylesheet" type="text/css" media="all" href="/css/paleta.css" />
- <script type="text/javascript" src="/js/calendar.js" charset="utf-8"></script>
- <script type="text/javascript" src="/js/calendar_es-uy.js" charset="utf-8"></script>
- <script type="text/javascript" src="/js/calendar-setup.js" charset="utf-8"></script>
- <script type="text/javascript" src="/js/paleta.js" charset="utf-8"></script>
+ <link rel="stylesheet" type="text/css" media="all" href="css/calendario.css" />
+ <link rel="stylesheet" type="text/css" media="all" href="css/paleta.css" />
+ <script type="text/javascript" src="js/calendar.js" charset="utf-8"></script>
+ <script type="text/javascript" src="js/calendar_es-uy.js" charset="utf-8"></script>
+ <script type="text/javascript" src="js/calendar-setup.js" charset="utf-8"></script>
+ <script type="text/javascript" src="js/paleta.js" charset="utf-8"></script>
 </head>
 <body>
-<noscript><div id="no_js_alerta"><img src="/img/warning" alt="" /> Para visualizar correctamente este sitio su navegador debe contar con <b>JavaScript</b> habilitado.</div></noscript>
+<noscript><div id="no_js_alerta"><img src="img/warning" alt="" /> Para visualizar correctamente este sitio su navegador debe contar con <b>JavaScript</b> habilitado.</div></noscript>
 <div id="cabezal_der">
  <div id="cabezal_izq">
   <div id="cabezal">
@@ -68,7 +69,7 @@ echo $seccion_id ? $secciones_nombres[$seccion_id] : $titulo;
 echo "</h3>
 <div id=\"div_mensaje\"";
 if(!$div_mensaje) echo " style=\"display:none;\"";
-echo ">${div_mensaje}&nbsp;</div>";
+echo ">{$div_mensaje}&nbsp;</div>";
 ?>
 
 <!-- /encabezado -->

@@ -133,7 +133,8 @@ function agregarAListado(lista, id, titulo, archivo, cat, obra)
   var div = document.createElement('div');
   div.setAttribute("id", "linkdoc"+id);
   var link = document.createElement('a');
-  link.setAttribute("href", "/archivo?n="+archivo);
+  // ruta
+  link.setAttribute("href", "archivo?n="+archivo);
   link.appendChild(document.createTextNode(titulo));
   div.appendChild(link);
   td1.appendChild(div);

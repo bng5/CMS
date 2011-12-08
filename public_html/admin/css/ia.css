@@ -16,7 +16,7 @@ body#ventanadialogo {
 }
 
 #no_js_alerta {
-	background:#E9E7AA url(/img/noscript_bk) repeat-x;
+	background:#E9E7AA url('../img/noscript_bk') repeat-x;
 	vertical-align: middle;
 	height:23px;
 }
@@ -29,15 +29,15 @@ body#ventanadialogo {
 #cabezal_der {
 	padding-right:20px;
 	height:63px;
-	background:url(/img/barra_superior_cms_02.png) no-repeat center right;
+	background:url('../img/barra_superior_cms_02.png') no-repeat center right;
 }
 #cabezal_izq {
 	padding-left:20px;
 	height:63px;
-	background:url(/img/barra_superior_cms_01.png) no-repeat center left;
+	background:url('../img/barra_superior_cms_01.png') no-repeat center left;
 }
 #cabezal {
-	background:#444 url(/img/barra_superior_cms_00.png) repeat-x;
+	background:#444 url('../img/barra_superior_cms_00.png') repeat-x;
 	height:63px;
 	margin:0 100px;
 	position:relative;
@@ -93,6 +93,10 @@ input[type="checkbox"], input[type="radio"] {
 input[disabled], input[disabled="disabled"], select[disabled], select[disabled="disabled"] {
 	background-color:#EFEBE7;
 	color:#B3AFAB;
+}
+
+ul, ol {
+    margin-left: 16px;
 }
 .oculto {
 	display:none;
@@ -159,14 +163,14 @@ input[disabled], input[disabled="disabled"], select[disabled], select[disabled="
 }
 
 #menu ul li.desplegado span {
-	background: url(/img/e) no-repeat center left;
+	background: url('../img/e') no-repeat center left;
 }
 #menu ul li.desplegado li span {
 	background-image: none;
 }
 
 #menu ul li.desplegable span {
-	background: url(/img/c) no-repeat center left;
+	background: url('../img/c') no-repeat center left;
 }
 
 #menu ul li.desplegado ul {
@@ -823,4 +827,43 @@ div#cargando {
 
 .no_padding td {
 	padding:1px;
+}
+
+
+/* Facebook */
+#muro {
+    width: 600px;
+}
+#muro .fbComment {
+    border-top: 1px solid #EFEFEF;
+    margin: 5px 0;
+    padding-left: 60px;
+    position: relative;
+}
+#muro .fbComment.actual {
+    background-color: OldLace;
+}
+#muro .fbComment img.avatar {
+    left: 5px;
+    position: absolute;
+    top: 6px;
+}
+#muro .fbComment h4 {
+    margin: 4px 0;
+}
+#muro .fbComment p {
+    margin: 4px;
+    white-space: pre-line;
+}
+#muro .fbComment .media {
+    color: #808080;
+    margin: 4px;
+    overflow: hidden;
+}
+#muro .fbComment .media span {
+    display: block;
+}
+#muro .fbComment .media img {
+    float: left;
+    margin-right: 4px;
 }

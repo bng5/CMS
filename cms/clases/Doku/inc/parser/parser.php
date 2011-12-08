@@ -1,9 +1,10 @@
 <?php
 
-if(!defined('DOKU_INC')) define('DOKU_INC',realpath(dirname(__FILE__).'/../../').'/');
+if(!defined('DOKU_INC'))
+    define('DOKU_INC',realpath(dirname(__FILE__).'/../../').'/');
 
-require_once DOKU_INC . 'inc/parser/lexer.php';
-require_once DOKU_INC . 'inc/parser/handler.php';
+//require_once DOKU_INC . 'inc/parser/lexer.php';
+//require_once DOKU_INC . 'inc/parser/handler.php';
 
 
 /**

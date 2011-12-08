@@ -24,7 +24,7 @@ class VistaAdmin_FormCampo2 extends VistaAdmin_Form {
 		if(!$cons = $mysqli->query("SELECT id, `archivo` FROM `imagenes_orig` WHERE `id` = '{$valor}' LIMIT 1")) echo __LINE__." - ".$mysqli->error;
 		if($fila = $cons->fetch_row()) {
 			$img_id = $fila[0];
-			$img = "/icono/0/{$this->id}/{$fila[1]}";
+			$img = "icono/0/{$this->id}/{$fila[1]}";
 			$etiqueta = "Cambiar";
 			$nombre_campo = $this->valores[0]['int'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
 		}
@@ -35,9 +35,11 @@ class VistaAdmin_FormCampo2 extends VistaAdmin_Form {
 			$nombre_campo = "[n][{$this->id}][]";
 		}
 		$retorno = $this->label(1)."<td><img src=\"".htmlspecialchars($img)."\" id=\"img{$this->indice}\" alt=\"{$fila[0]}\" />
-		<div>
-		<button type=\"button\" onclick=\"modalCrop({imagenId: document.getElementById('{$this->campo_nombre_pref}{$this->indice}').value, atributo: {$this->id}, indice: {$this->indice}})\" id=\"crop{$this->indice}\" ".($img_id ? '' : 'style="display:none;"')." title=\"Cortar imagen\"><img src=\"/img/crop\" alt=\"Cortar imagen\" /></button>
-		<button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_imagen', {$this->indice})\"><span>${etiqueta}</span></button> <!-- button type=\"button\" onclick=\"abrirModal('./examinar/{$this->id}/{$this->indice}', 680, 450)\"><span>Examinar servidor...</span></button --><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" />
+		<div>";
+		//<button type=\"button\" onclick=\"modalCrop({imagenId: document.getElementById('{$this->campo_nombre_pref}{$this->indice}').value, atributo: {$this->id}, indice: {$this->indice}})\" id=\"crop{$this->indice}\" ".($img_id ? '' : 'style="display:none;"')." title=\"Cortar imagen\"><img src=\"/img/crop\" alt=\"Cortar imagen\" /></button>
+        $retorno .= "
+		<button type=\"button\" onclick=\"modalCrop({imagenId: document.getElementById('{$this->campo_nombre_pref}{$this->indice}').value, atributo: {$this->id}, indice: {$this->indice}})\" id=\"crop{$this->indice}\" style=\"display:none;\" title=\"Cortar imagen\"><img src=\"/img/crop\" alt=\"Cortar imagen\" /></button>
+		<button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, 'subir_imagen', {$this->indice})\"><span>{$etiqueta}</span></button> <!-- button type=\"button\" onclick=\"abrirModal('./examinar/{$this->id}/{$this->indice}', 680, 450)\"><span>Examinar servidor...</span></button --><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" />
 		</div>";
 		if($this->extra['prot']) {
 			$retorno .= "

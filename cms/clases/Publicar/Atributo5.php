@@ -1,8 +1,8 @@
 <?php
 
 require_once(DOKU_INC.'inc/events.php');
-require_once(DOKU_INC.'inc/parser/parser.php');
-require_once(DOKU_INC.'inc/parser/xhtml.php');
+//require_once(DOKU_INC.'inc/parser/parser.php');
+//require_once(DOKU_INC.'inc/parser/xhtml.php');
 
 /**
  * Área de texto
@@ -47,12 +47,16 @@ class Publicar_Atributo5 extends Publicar_Atributo {
 				* bajada es parte de descripción
 				*/
 //                if($attr_k == 14) {
-                    if($pos_marca = mb_strpos($valores[$leng_id]['text'], "¶"))
-                        $valores[$leng_id]['text'] = mb_substr($valores[$leng_id]['text'], 0, $pos_marca).mb_substr($valores[$leng_id]['text'], $pos_marca+1);
-                    else
-                        $pos_marca = 200;
                     $item[$attr_k] = self::formato($valores[$leng_id]['text']);
-                    $valores[$leng_id]['text'] = serialize(self::formato(mb_substr($valores[$leng_id]['text'], 0, $pos_marca)));
+                    if($pos_marca = mb_strpos($valores[$leng_id]['text'], "¶")) {
+                        $valores[$leng_id]['text'] = mb_substr($valores[$leng_id]['text'], 0, $pos_marca).mb_substr($valores[$leng_id]['text'], $pos_marca+1);
+                        $valores[$leng_id]['text'] = serialize(self::formato(mb_substr($valores[$leng_id]['text'], 0, $pos_marca)));
+                    }
+                    else {
+                        //$pos_marca = 200;
+                        //$valores[$leng_id]['text'] = serialize(self::formato(mb_substr($valores[$leng_id]['text'], 0, $pos_marca)));
+                        $valores[$leng_id]['text'] = serialize($item[$attr_k]);
+                    }
                     // bsq
                     $bsq_texto .= $valores[$leng_id]['text']." ";
 //                }
@@ -88,10 +92,12 @@ class Publicar_Atributo5 extends Publicar_Atributo {
 		$Parser->addMode('superscript', new Doku_Parser_Mode_Formatting('superscript'));
 		$Parser->addMode('deleted', new Doku_Parser_Mode_Formatting('deleted'));
 		$Parser->addMode('internallink',new Doku_Parser_Mode_InternalLink());
-		$Parser->addMode('media',new Doku_Parser_Mode_Media());
+//		$Parser->addMode('media',new Doku_Parser_Mode_Media());
 		$Parser->addMode('externallink',new Doku_Parser_Mode_ExternalLink());
-		$Parser->addMode('eol',new Doku_Parser_Mode_Eol());
+        $Parser->addMode('listblock',new Doku_Parser_Mode_ListBlock());
 		$Parser->addMode('linebreak',new Doku_Parser_Mode_Linebreak());
+        $Parser->addMode('footnote',new Doku_Parser_Mode_Footnote());
+		$Parser->addMode('eol',new Doku_Parser_Mode_Eol());
 		//$instructions = $Parser->parse($valores[$attr_k][$leng_id][$attr_v['tipo']]);
 		//$valores[$attr_k][$leng_id][$attr_v['tipo']] = serialize($instructions);
 		return $Parser->parse($valor);

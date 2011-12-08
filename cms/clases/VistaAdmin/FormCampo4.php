@@ -45,7 +45,7 @@ class VistaAdmin_FormCampo4 extends VistaAdmin_Form {
 			}
 		}
 		//SELECT gi.imagen_id, gi.estado, i.archivo, i.formato, i.peso, gi.orden FROM galerias_imagenes gi JOIN imagenes i ON gi.imagen_id = i.id WHERE gi.galeria_id = '{$this->valores[0]['int']}' ORDER BY gi.orden
-		$retorno .= "<span></span></div><input type=\"image\" name=\"eliminarImg\" src=\"img/papelera\" alt=\"Eliminar\" title=\"Arrastre hasta aquí para eliminar\" style=\"background:none;border:none;\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_imagen_gal', {$this->indice})\"><span>Agregar</span></button><fieldset style=\"display:none;\"><legend></legend><img src=\"img/trans\" alt=\"\"	/>";
+		$retorno .= "<span></span></div><input type=\"image\" name=\"eliminarImg\" src=\"img/papelera\" alt=\"Eliminar\" title=\"Arrastre hasta aquí para eliminar\" style=\"background:none;border:none;\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, 'subir_imagen_gal', {$this->indice})\"><span>Agregar</span></button><fieldset style=\"display:none;\"><legend></legend><img src=\"img/trans\" alt=\"\"	/>";
 		/*********************************************************************/
 		//
 		$atributos = array();

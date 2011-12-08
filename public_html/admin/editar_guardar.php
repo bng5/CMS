@@ -187,6 +187,7 @@ if($_POST["ia"] == "modificar") {
         //$xml_modificar = $mysqli->affected_rows;
         $publicar = new Item_publicar($seccion);
         $publicar->Item($id);
+        @include(RUTA_CARPETA.'bng5/hooks/pos_publishitem'.$seccion_id.'.php');
     }
     else
         $mysqli->query("UPDATE `items` SET `estado_id` = '2', `f_modificado` = now() WHERE `id` = '{$id}' AND `estado_id` = '1' LIMIT 1");

@@ -29,7 +29,6 @@ if($_POST["ia"] == "modificar") {
     $cat = $_POST['cat'] ? "'".$_POST['cat']."'" : "NULL";
     if(empty($seccion_id)) {
         //echo "INSERT INTO `galerias` (`miniatura`, `creada`) VALUES ({$miniatura}, NOW())\n";
-echo "INSERT INTO `items` (`seccion_id`, `f_creado`) VALUES (".$seccion_id.", now())<br />\n";
         //if(!$mysqli->query("INSERT INTO `items` (`seccion_id`, `f_creado`) VALUES ({$seccion_id}, now())")) die ("\n".__LINE__." mySql: ".$mysqli->error);
         if($id = $mysqli->insert_id)
             $modif++;
@@ -259,6 +258,6 @@ echo "SELECT atributo_id, gt.valor_id, texto FROM `galerias_info` ga JOIN `galer
 if(headers_sent())
     echo "<a href=\"info?seccion={$seccion_id}&cat={$cat_id}&id={$id}\">editar?seccion={$seccion_id}&cat={$cat_id}&id={$id}</a>";
 else
-    header("Location: /info?seccion={$seccion_id}");
+    header("Location: info?seccion={$seccion_id}");
 
 ?>

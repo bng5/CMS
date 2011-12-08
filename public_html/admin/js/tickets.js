@@ -35,13 +35,15 @@ function mostrar_subLista(el)
    {
 	siguienteEl.style.display = '';
 	//el.parentNode.style.listStyleImage = "url('/img/e')";
-	el.style.backgroundImage = "url('/img/e')";
+    // ruta
+	el.style.backgroundImage = "url('img/e')";
    }
   else
    {
 	siguienteEl.style.display = 'none';
 	//el.parentNode.style.listStyleImage = "url('/img/c')";
-	el.style.backgroundImage = "url('/img/c')";
+    // ruta
+	el.style.backgroundImage = "url('img/c')";
    }
   return true;
  }

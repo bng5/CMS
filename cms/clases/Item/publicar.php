@@ -36,8 +36,11 @@ class Item_publicar extends Publicar {
             3 => 'arch',
             5 => 'text',
             7 => 'date',
+            8 => 'link',
             10 => 'int',
             11 => 'int',
+            12 => 'int',
+            14 => 'string',
         );
 
         if (!$cons_attrs = $mysqli->query("SELECT ia.id, ia.identificador, ia.unico, ia.tipo_id, ia.extra, isaa.en_listado, isaa.salida, isaa.superior, ia.tipo_id FROM items_atributos ia, items_secciones_a_atributos isaa WHERE ia.id = isaa.atributo_id AND isaa.seccion_id = " . $this->seccion_id . " ORDER BY isaa.orden, ia.id"))
@@ -84,13 +87,16 @@ class Item_publicar extends Publicar {
                       }
                      */
                     //else
-                    if ($fila_attrs['tipo_id'] == 5) {
+                    if ($fila_attrs['tipo_id'] == Atributos::TXT) {
                         $s_tipo = "TEXT";
                         //if($fila_attrs['subtipo'] == 1)
                         //  $s_pref = "link";
-                    } elseif ($fila_attrs['tipo_id'] == 7) {
+                    } elseif ($fila_attrs['tipo_id'] == Atributos::FECHA) {
                         $this->strc_sqlite[] = "`{$s_pref}__{$fila_attrs['identificador']}` DATETIME";
                         $s_pref = "string";
+                    } elseif ($fila_attrs['tipo_id'] == Atributos::FACEBOOK_OBJ) {
+                        $this->strc_sqlite[] = "`string__{$fila_attrs['identificador']}` VARCHAR(300)";
+                        $s_pref = "text";
                     }
                     $this->strc_sqlite[] = "`{$s_pref}__{$fila_attrs['identificador']}` {$s_tipo}";
                 }
@@ -173,7 +179,6 @@ CHARACTER SET utf8 COLLATE utf8_general_ci;");
             @$mysqli->query("DELETE FROM `pub__{$this->seccion_id}` WHERE id = {$id} AND leng_cod = '{$leng->codigo}'");
             @$mysqli->query("DELETE FROM `buscador` WHERE item_id = {$id}");
             $mysqli->query("INSERT INTO `buscador` (item_id, texto) VALUES ({$id}, '{$bsq_texto}')");
-
             $mysqli->query("INSERT INTO `pub__{$this->seccion_id}` (`id`, `leng_cod`, `" . implode("`, `", array_keys($a_sqlite)) . "`) VALUES ({$id}, '" . $leng->codigo . "', " . implode(",", $a_sqlite) . ")");
         }
         $this->modificadas++;

@@ -30,7 +30,8 @@ function docNCargado(errorno, archivoId, archivo, archivo_nombre, indice)
  {
   var lista = document.getElementById('lista_'+indice);
   borrar = new Image();
-  borrar.src = '/img/b_drop_ch.png';
+  // ruta
+  borrar.src = 'img/b_drop_ch.png';
   if(errorno == false)
    {
    	var li = document.createElement('li');
@@ -121,6 +122,7 @@ function imgAreaTexto(params)
   var atributo = params.atributo;
   if(errorno == false)
    {
+       // FIXME zooko??!!
 	insertTags('dato'+indice+'_1', '\n{{', '}}\n', 'http://zooko.com.uy/img/0/'+atributo+'/'+imagenArchivo);
 	document.getElementById('subirArchivos').style.display = 'none';
    }
@@ -144,7 +146,8 @@ function imgCargada(params) {
 		imagencont.removeChild(imagen);
 		imagen = new Image();
 		imagencont.insertBefore(imagen, imagencont.firstChild);
-		imagen.src = '/icono/0/'+atributo+'/'+imagenArchivo; //+'&max=120';
+        // ruta
+		imagen.src = 'icono/0/'+atributo+'/'+imagenArchivo; //+'&max=120';
 		imagen.id = 'img'+indice;
 		document.getElementById('dato'+indice).value = imagenId;
 		document.getElementById('crop'+indice).style.display = 'inline';
@@ -164,7 +167,8 @@ function modalCrop(respuesta) {
 	var confirmacion = confirm("Las proporciones de la imagen podrían no ser correctas.\n¿Desea cortarla manualmente?");
 	if(confirmacion) {
 	*/
-		abrirModal('/crop?imagenId='+respuesta.imagenId+'&atributo='+respuesta.atributo+'&indice='+respuesta.indice, 700, 500);
+        // ruta
+		abrirModal('crop?imagenId='+respuesta.imagenId+'&atributo='+respuesta.atributo+'&indice='+respuesta.indice, 700, 500);
 	/*
 	}
 	else {
@@ -180,7 +184,8 @@ function mostrarCrop(params) {
     imagen = new Image();
 	imagencont.insertBefore(imagen, imagencont.firstChild);
 	var d = new Date();
-	imagen.src = '/icono/0/'+params.atributo+'/'+params.imagenArchivo+'?timestamp='+d.getTime(); //+'&max=120';
+    // ruta
+	imagen.src = 'icono/0/'+params.atributo+'/'+params.imagenArchivo+'?timestamp='+d.getTime(); //+'&max=120';
 
 	imagen.id = 'img'+params.indice;
     document.getElementById('dato'+params.indice).value = params.imagenId;
@@ -205,7 +210,8 @@ function docCargado(params)
 	span.appendChild(document.createTextNode(archivo_nombre));
     document.getElementById('dato'+indice).value = archivoId;
 	borrar = span.nextSibling;
-	borrar.src = '/img/b_drop_ch.png';
+    // ruta
+	borrar.src = 'img/b_drop_ch.png';
 	borrar.setAttribute("alt", TEXTOS['eliminar']);
 	borrar.setAttribute("title", TEXTOS['eliminar']);
 	borrar['onclick'] = function()
@@ -553,7 +559,8 @@ function agregarOp(tipo, subtipo, elemento, idAtributo, prefijo, pref)
 	  campo['onkeyup'] = function()
 	   {contar6rgb(this);}
 	  var muestra = new Image();
-	  muestra.src = '/img/trans';
+      // ruta
+	  muestra.src = 'img/trans';
 	  muestra['onclick'] = function()
 	   {paletaDeColores(this, this.nextSibling).mostrar();}
 	  muestra.className = 'muestraColor';
@@ -561,7 +568,8 @@ function agregarOp(tipo, subtipo, elemento, idAtributo, prefijo, pref)
 	  muestra.height = '22';
 
 	  var borrar = new Image();
-	  borrar.src = '/img/b_drop_ch';
+      // ruta
+	  borrar.src = 'img/b_drop_ch';
 	  borrar.alt = 'Eliminar';
 	  borrar['onclick'] = function()
 	   {borrarOp(this.parentNode, false, pref);}
@@ -718,7 +726,8 @@ function asignarCat(id, ordenN)
 
   var borrar = document.createElement('input');//new Image();
   borrar.setAttribute('type', 'image');
-  borrar.src = '/img/b_drop_ch';
+  // ruta
+  borrar.src = 'img/b_drop_ch';
   borrar.value = id;
   borrar.setAttribute("alt", 'Eliminar');
   borrar.setAttribute("title", 'Eliminar');
@@ -934,91 +943,83 @@ function mostrarMeta(codigo)
   document.getElementById('meta-'+codigo).style.display = 'block';
  }
 
-function textCounter(field)
- {
-  if(field.value.length > 250)
-	field.value = field.value.substring(0, 250);
- }
+function textCounter(field) {
+    if(field.value.length > 250)
+        field.value = field.value.substring(0, 250);
+}
 
 // fin metatags
 
 
 // apply tagOpen/tagClose to selection in textarea,
 // use sampleText instead of selection if there is none
-function insertTags(area, tagOpen, tagClose, sampleText)
- {
-  var txtarea = document.getElementById(area);
-  var selText, isSample = false;
+function insertTags(area, tagOpen, tagClose, sampleText) {
+    var txtarea = document.getElementById(area);
+    var selText, isSample = false;
 
-  if (document.selection  && document.selection.createRange)
-   { // IE/Opera
-    //save window scroll position
-	if (document.documentElement && document.documentElement.scrollTop)
-	  var winScroll = document.documentElement.scrollTop
-	else if (document.body)
-	  var winScroll = document.body.scrollTop;
-	//get current selection
-	txtarea.focus();
-	var range = document.selection.createRange();
-	selText = range.text;
-	//insert tags
-	checkSelectedText();
-	range.text = tagOpen + selText + tagClose;
-	//mark sample text as selected
-	if(isSample && range.moveStart)
-	 {
-	  if (window.opera)
-		tagClose = tagClose.replace(/\n/g,'');
-	  range.moveStart('character', - tagClose.length - selText.length);
-	  range.moveEnd('character', - tagClose.length);
-	 }
-	range.select();
-	//restore window scroll position
-	if (document.documentElement && document.documentElement.scrollTop)
-	  document.documentElement.scrollTop = winScroll
-	else if (document.body)
-	  document.body.scrollTop = winScroll;
-   }
-  else if (txtarea.selectionStart || txtarea.selectionStart == '0')
-   { // Mozilla
-    //save textarea scroll position
-	var textScroll = txtarea.scrollTop;
-	//get current selection
-	txtarea.focus();
-	var startPos = txtarea.selectionStart;
-	var endPos = txtarea.selectionEnd;
-	selText = txtarea.value.substring(startPos, endPos);
-	//insert tags
-	checkSelectedText();
-	txtarea.value = txtarea.value.substring(0, startPos) + tagOpen + selText + tagClose + txtarea.value.substring(endPos, txtarea.value.length);
-	//set new selection
-	if(isSample)
-	 {
-	  txtarea.selectionStart = startPos + tagOpen.length;
-	  txtarea.selectionEnd = startPos + tagOpen.length + selText.length;
-	 }
-	else
-	 {
-	  txtarea.selectionStart = startPos + tagOpen.length + selText.length + tagClose.length;
-	  txtarea.selectionEnd = txtarea.selectionStart;
-	 }
-	//restore textarea scroll position
-	txtarea.scrollTop = textScroll;
-   }
-  function checkSelectedText()
-   {
-	if (!selText)
-	 {
-	  selText = sampleText;
-	  isSample = true;
-	 }
-	else if (selText.charAt(selText.length - 1) == ' ')
-	 { //exclude ending space char
-	  selText = selText.substring(0, selText.length - 1);
-	  tagClose += ' ';
-	 }
-   }
- }
+    if (document.selection  && document.selection.createRange) { // IE/Opera
+        //save window scroll position
+
+        var winScroll;
+        if (document.documentElement && document.documentElement.scrollTop)
+            winScroll = document.documentElement.scrollTop
+        else if (document.body)
+            winScroll = document.body.scrollTop;
+        //get current selection
+        txtarea.focus();
+        var range = document.selection.createRange();
+        selText = range.text;
+        //insert tags
+        checkSelectedText();
+        range.text = tagOpen + selText + tagClose;
+        //mark sample text as selected
+        if(isSample && range.moveStart) {
+            if (window.opera)
+                tagClose = tagClose.replace(/\n/g,'');
+            range.moveStart('character', - tagClose.length - selText.length);
+            range.moveEnd('character', - tagClose.length);
+        }
+        range.select();
+        //restore window scroll position
+        if (document.documentElement && document.documentElement.scrollTop)
+            document.documentElement.scrollTop = winScroll
+        else if (document.body)
+            document.body.scrollTop = winScroll;
+    }
+    else if (txtarea.selectionStart || txtarea.selectionStart == '0') { // Mozilla
+        //save textarea scroll position
+        var textScroll = txtarea.scrollTop;
+        //get current selection
+        txtarea.focus();
+        var startPos = txtarea.selectionStart;
+        var endPos = txtarea.selectionEnd;
+        selText = txtarea.value.substring(startPos, endPos);
+        //insert tags
+        checkSelectedText();
+        txtarea.value = txtarea.value.substring(0, startPos) + tagOpen + selText + tagClose + txtarea.value.substring(endPos, txtarea.value.length);
+        //set new selection
+        if(isSample) {
+            txtarea.selectionStart = startPos + tagOpen.length;
+            txtarea.selectionEnd = startPos + tagOpen.length + selText.length;
+        }
+        else {
+            txtarea.selectionStart = startPos + tagOpen.length + selText.length + tagClose.length;
+            txtarea.selectionEnd = txtarea.selectionStart;
+        }
+        //restore textarea scroll position
+        txtarea.scrollTop = textScroll;
+    }
+    function checkSelectedText() {
+        if (!selText) {
+            selText = sampleText;
+            isSample = true;
+        }
+        else if (selText.charAt(selText.length - 1) == ' ') { //exclude ending space char
+            selText = selText.substring(0, selText.length - 1);
+            tagClose += ' ';
+        }
+    }
+}
 
 function insertarEnlace(areaTexto) {
     var txtarea = document.getElementById(areaTexto);
