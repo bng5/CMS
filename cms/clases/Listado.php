@@ -5,7 +5,7 @@ class Listado implements IteratorAggregate {
 	public static $rpp = 25;
 	
 	//private $_fila_actual, $_posicion;
-	private $_campos = array();
+	protected $_campos = array();
 	private $_stmt;
 	
 	function __construct($total = 0, Traversable $stmt = null, $pagina = 1, $rpp = null) {
@@ -18,15 +18,30 @@ class Listado implements IteratorAggregate {
 		// $this->rpp = $rpp;
 		// $this->pagina = $pagina;
 	}
-	
+
+    function setData($total = 0, Traversable $stmt = null) {
+		$this->_stmt = $stmt;
+		$this->_campos['total'] = $total;
+		$this->_campos['paginas'] = ceil($total / $this->_campos['rpp']);
+    }
+    
 	function __get($k) {
 		//if(in_array($k, $this->campos))
 		//  return $this->$k;
 		return $this->_campos[$k];
 	}
+	function __set($attr, $val) {
+		//if(in_array($k, $this->campos))
+		//  return $this->$k;
+        $this->_campos[$attr] = $val;
+	}
 	
-	function getIterator() {
+	public function getIterator() {
 		return $this->_stmt;
 	}
+	public function setIterator($iterator) {
+		$this->_stmt = $iterator;
+	}
+
 
 }

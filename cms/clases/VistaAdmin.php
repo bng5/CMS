@@ -26,14 +26,14 @@ abstract class VistaAdmin {
 	protected function incluirCSS() {
 		if(count($this->_incCss)) {
 			foreach($this->_incCss AS $css => $no)
-				echo "\n <link rel=\"stylesheet\" type=\"text/css\" href=\"/css/".$css.".css\" />";
+				echo "\n <link rel=\"stylesheet\" type=\"text/css\" href=\"".APU."css/".$css.".css\" />";
 		}
 	}
 
 	protected function incluirJS() {
 		if(count($this->_incJs)) {
 			foreach($this->_incJs AS $js => $no)
-				echo "\n <script type=\"text/javascript\" src=\"/js/".$js.".js\" charset=\"utf-8\"></script>";
+				echo "\n <script type=\"text/javascript\" src=\"".APU."js/".$js.".js\" charset=\"utf-8\"></script>";
 		}
 	}
 
@@ -60,5 +60,3 @@ abstract class VistaAdmin {
 
 	abstract function mostrar();
 }
-
-?>

@@ -11,6 +11,9 @@ class Atributos {
 	const FECHA = 7;// 	string
 	const LINK = 8;// 	string
 	const ENTERO = 11;
+	const ITEM = 12;
+    const SHARE = 13;
+    const FACEBOOK_OBJ = 14;
 
 	public static $almacenamiento = array(
 		1 => 'string',
@@ -24,6 +27,9 @@ class Atributos {
 		9 => 'int',
 		10 => 'int',
 		11 => 'int',
+		12 => 'int',
+		13 => 'string',
+        14 => 'string',
 	);
 
 	public static function Listado($leng_id, $tipo) {

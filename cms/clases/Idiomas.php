@@ -35,7 +35,7 @@ class Idiomas
 	  if(count($params)) {
 		  $bsq = array();
 		  foreach($params AS $k => $v)
-			  $bsq[] = "`${k}` = ${v}";
+			  $bsq[] = "`{$k}` = {$v}";
 		  $bsq_sql = 'WHERE '.implode(" AND ", $bsq);
 	  }
 	  $db = DB::instancia();
@@ -49,7 +49,7 @@ class Idiomas
 	  if(count($params)) {
 		  $bsq = array();
 		  foreach($params AS $k => $v)
-			  $bsq[] = "`${k}` = ${v}";
+			  $bsq[] = "`{$k}` = {$v}";
 		  $bsq_sql = 'WHERE '.implode(" AND ", $bsq);
 	  }
 	  $db = DB::instancia();

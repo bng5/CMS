@@ -126,7 +126,7 @@ valores: ".var_export($this->valores, true)."
 	 }
 	//if($nm == "nombre") $this->label = "<label class=\"td\">{$val}:</label>\n";
 	//else
-	if($nm == "id") $this->v = '['.$val.'][]'; //$v = $v_id ? "[m][${tipo}][${v_id}]" : "[${id}][]";
+	if($nm == "id") $this->v = '['.$val.'][]'; //$v = $v_id ? "[m][{$tipo}][{$v_id}]" : "[{$id}][]";
    }
 */
 
@@ -181,7 +181,7 @@ valores: ".var_export($this->valores, true)."
 		  $retorno .= "<ul>";
 		  do
 		   {
-			$retorno .= "<li><input type=\"checkbox\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" value=\"{$fila[0]}\" id=\"{$this->campo_nombre_pref}{$this->indice}${i}\"".(in_array($fila[0], $valores_op) ? ' checked="checked"' : '')." /> <label for=\"{$this->campo_nombre_pref}{$this->indice}${i}\">{$fila[1]}</label></li>";
+			$retorno .= "<li><input type=\"checkbox\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" value=\"{$fila[0]}\" id=\"{$this->campo_nombre_pref}{$this->indice}{$i}\"".(in_array($fila[0], $valores_op) ? ' checked="checked"' : '')." /> <label for=\"{$this->campo_nombre_pref}{$this->indice}{$i}\">{$fila[1]}</label></li>";
 			$i++;
 		   }while($fila = $cons->fetch_row());
 		  $retorno .= "</ul>";
@@ -189,13 +189,13 @@ valores: ".var_export($this->valores, true)."
 	   }
 	  else
 		$retorno .= "No hay opciones configuradas.<br />Campo id: ".$this->id;
-	  return $this->label(2)."<td>${retorno}</td></tr>";// tabindex=\"2\"
+	  return $this->label(2)."<td>{$retorno}</td></tr>";// tabindex=\"2\"
      }
     // alineación asociativa
 	elseif($this->subtipo == 5)
      {
-	  $nombre_campo = $this->valores[$leng_id] ? "[m][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][${leng_id}][]";
-	  return $this->label(2)."<td><input type=\"hidden\" name=\"\" value=\"\" /><input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_${i}\" size=\"20\" maxlength=\"45\" /> -&gt; <input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_${i}\" size=\"20\" maxlength=\"45\" /></td></tr>";// tabindex=\"2\"
+	  $nombre_campo = $this->valores[$leng_id] ? "[m][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][{$leng_id}][]";
+	  return $this->label(2)."<td><input type=\"hidden\" name=\"\" value=\"\" /><input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_{$i}\" size=\"20\" maxlength=\"45\" /> -&gt; <input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_{$i}\" size=\"20\" maxlength=\"45\" /></td></tr>";// tabindex=\"2\"
      }
 	elseif($this->subtipo == 6)
      {
@@ -210,10 +210,10 @@ valores: ".var_export($this->valores, true)."
 	  if($multi_l) $retorno .= "<ul class=\"campo_lista\">";
 	  foreach($this->lenguajes AS $leng_id => $leng)
 	   {
-		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][${leng_id}][]";
+		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][{$leng_id}][]";
 		if($multi_l)
-		  $retorno .= "<li><label for=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"etiqueta_idioma\"><tt>({$leng[0]})</tt></label>&nbsp;";
-		$retorno .= "<input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_${i}\" value=\"".htmlspecialchars($this->valores[$leng_id]['string'])."\" size=\"45\" maxlength=\"200\" lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\" />";
+		  $retorno .= "<li><label for=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"etiqueta_idioma\"><tt>({$leng[0]})</tt></label>&nbsp;";
+		$retorno .= "<input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_{$i}\" value=\"".htmlspecialchars($this->valores[$leng_id]['string'])."\" size=\"45\" maxlength=\"200\" lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\" />";
 		if($multi_l)
 		  $retorno .= "</li>";
 		$i++;
@@ -252,8 +252,8 @@ valores: ".var_export($this->valores, true)."
      }
 	elseif($this->subtipo == 2)
      {
-	  $nombre_campo = $this->valores[$leng_id] ? "[m][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][${leng_id}][]";
-	  return $this->label(2)."<td><input type=\"password\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_${i}\" size=\"45\" maxlength=\"45\" /></td>";// tabindex=\"2\"
+	  $nombre_campo = $this->valores[$leng_id] ? "[m][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][{$leng_id}][]";
+	  return $this->label(2)."<td><input type=\"password\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_{$i}\" size=\"45\" maxlength=\"45\" /></td>";// tabindex=\"2\"
      }
 
 
@@ -267,9 +267,9 @@ valores: ".var_export($this->valores, true)."
 	  if($multi_l) $retorno .= "<ul class=\"campo_lista\">";
 	  foreach($this->lenguajes AS $leng_id => $leng)
 	   {
-		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][${leng_id}][]";
-		if($multi_l) $retorno .= "<li><label for=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"etiqueta_idioma\"><tt>({$leng[0]})</tt></label>&nbsp;";
-		$retorno .= "<input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_${i}\" value=\"".htmlspecialchars($this->valores[$leng_id]['string'])."\" size=\"45\" maxlength=\"100\" lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\" />";
+		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][{$leng_id}][]";
+		if($multi_l) $retorno .= "<li><label for=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"etiqueta_idioma\"><tt>({$leng[0]})</tt></label>&nbsp;";
+		$retorno .= "<input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_{$i}\" value=\"".htmlspecialchars($this->valores[$leng_id]['string'])."\" size=\"45\" maxlength=\"100\" lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\" />";
 		if($multi_l) $retorno .= "</li>";
 		$i++;
 	   }
@@ -308,10 +308,10 @@ valores: ".var_export($this->valores, true)."
 	// onclick=\"return showCalendar('fecha_fin', '%A, %B %e, %Y');\"
 
 	$nombre_campo = $this->valores[0]['date'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
-	return $this->label(1)."<td><span id=\"mostrar_fecha{$this->indice}\">${fechaMst}</span>&nbsp;&nbsp;<img src=\"/img/icono_calendario\" id=\"tn_calendario{$this->indice}\" style=\"cursor: pointer;\" title=\"Abrir calendario\" alt=\"Abrir calendario\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" value=\"{$valor}\" id=\"fecha{$this->indice}\" />
+	return $this->label(1)."<td><span id=\"mostrar_fecha{$this->indice}\">{$fechaMst}</span>&nbsp;&nbsp;<img src=\"img/icono_calendario\" id=\"tn_calendario{$this->indice}\" style=\"cursor: pointer;\" title=\"Abrir calendario\" alt=\"Abrir calendario\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" value=\"{$valor}\" id=\"fecha{$this->indice}\" />
 <script type=\"text/javascript\">
 //<![CDATA[
-Calendar.setup({inputField : \"fecha{$this->indice}\", ifFormat : \"${formato}\", displayArea : \"mostrar_fecha{$this->indice}\", daFormat : \"${formatoMst}\", button : \"tn_calendario{$this->indice}\", showsTime : ${mostrarHora}});
+Calendar.setup({inputField : \"fecha{$this->indice}\", ifFormat : \"{$formato}\", displayArea : \"mostrar_fecha{$this->indice}\", daFormat : \"{$formatoMst}\", button : \"tn_calendario{$this->indice}\", showsTime : {$mostrarHora}});
 //]]>
 </script></td>
 </tr>";
@@ -330,7 +330,7 @@ Calendar.setup({inputField : \"fecha{$this->indice}\", ifFormat : \"${formato}\"
 		if($fila_vista = $cons_vista->fetch_row())
 		 {
 		  $nombre_campo = $this->valores[0]['int'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
-		  $ret .= "<select name=\"{$this->campo_nombre_pref}${nombre_campo}\"><option value=\"\"> </option>";
+		  $ret .= "<select name=\"{$this->campo_nombre_pref}{$nombre_campo}\"><option value=\"\"> </option>";
 		  do
 		   {
 			$ret .= "<option value=\"{$fila_vista[0]}\"";
@@ -368,7 +368,7 @@ Calendar.setup({inputField : \"fecha{$this->indice}\", ifFormat : \"${formato}\"
 		$etiqueta = "Agregar";
 		$nombre_campo = "[n][{$this->id}][]";
 	   }
-	  $retorno = $this->label(1)."<td><img src=\"".htmlspecialchars($img)."\" id=\"img{$this->indice}\" alt=\"{$fila[0]}\" /><button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_imagen', {$this->indice})\"><span>${etiqueta}</span></button> <!-- button type=\"button\" onclick=\"abrirModal('./examinar/{$this->id}/{$this->indice}', 680, 450)\"><span>Examinar servidor...</span></button --><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" />";
+	  $retorno = $this->label(1)."<td><img src=\"".htmlspecialchars($img)."\" id=\"img{$this->indice}\" alt=\"{$fila[0]}\" /><button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_imagen', {$this->indice})\"><span>{$etiqueta}</span></button> <!-- button type=\"button\" onclick=\"abrirModal('./examinar/{$this->id}/{$this->indice}', 680, 450)\"><span>Examinar servidor...</span></button --><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" />";
 if($this->extra['prot'])
  {
 
@@ -455,7 +455,7 @@ $retorno .= "</td></tr>";
 		 {
 		  $img_id = $fila[0];
 		  $nombre_campo = $this->valores[0]['int'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
-		  $retorno .= "<span id=\"archivo{$this->indice}\">{$fila[2]}</span><img src=\"/img/b_drop_ch.png\" alt=\"Eliminar\" title=\"Eliminar\" onclick=\"borrarOpArch(this)\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>${etiqueta}</span></button>";
+		  $retorno .= "<span id=\"archivo{$this->indice}\">{$fila[2]}</span><img src=\"/img/b_drop_ch.png\" alt=\"Eliminar\" title=\"Eliminar\" onclick=\"borrarOpArch(this)\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>{$etiqueta}</span></button>";
 		 }
 		else
 		 {
@@ -465,7 +465,7 @@ $retorno .= "</td></tr>";
 		   {
 			$img_id = $fila[0];
 			$nombre_campo = "[m][{$this->id}][{$acons[$img_id]}]";
-			$retorno .= "<li><span id=\"archivo{$this->indice}_${i}\">{$fila[2]}</span><img src=\"/img/b_drop_ch.png\" alt=\"Eliminar\" title=\"Eliminar\" onclick=\"borrarOpArch(this)\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_${i}\" value=\"{$img_id}\" /></li>";
+			$retorno .= "<li><span id=\"archivo{$this->indice}_{$i}\">{$fila[2]}</span><img src=\"/img/b_drop_ch.png\" alt=\"Eliminar\" title=\"Eliminar\" onclick=\"borrarOpArch(this)\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_{$i}\" value=\"{$img_id}\" /></li>";
 			$i++;
 		   }while($fila = $cons->fetch_row());
 		  $retorno .= "</ul><a onclick=\"agAdjunto(this.previousSibling, {$this->id}, '/subir_archivo', {$this->indice})\">Agregar</a>";//onclick=\"agregarOp('{$this->tipo}', {$this->subtipo}, this, {$this->id}, '{$this->campo_nombre_pref}', '{$pref}')\"
@@ -478,9 +478,9 @@ $retorno .= "</td></tr>";
 		$nombre_campo = "[n][{$this->id}][]";
 	   }
 	  if(empty($retorno))
-		$retorno = $this->unico ? "<span id=\"archivo{$this->indice}\">{$fila[2]}</span><img src=\"img/trans\" alt=\"\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>${etiqueta}</span></button>" : "<ul id=\"lista_{$this->indice}\"></ul><a onclick=\"agAdjunto(this.previousSibling, {$this->id}, '/subir_archivo', {$this->indice})\">Agregar</a>";
+		$retorno = $this->unico ? "<span id=\"archivo{$this->indice}\">{$fila[2]}</span><img src=\"img/trans\" alt=\"\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>{$etiqueta}</span></button>" : "<ul id=\"lista_{$this->indice}\"></ul><a onclick=\"agAdjunto(this.previousSibling, {$this->id}, '/subir_archivo', {$this->indice})\">Agregar</a>";
 
-	  return $this->label(1)."<td>${retorno}</td></tr>";
+	  return $this->label(1)."<td>{$retorno}</td></tr>";
 
      }
 
@@ -490,7 +490,7 @@ $retorno .= "</td></tr>";
       $nombre_campo = $this->valores[0]['int'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
       $valores = array();
       $imagenes = array();
-	  $retorno = "<td colspan=\"2\"><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" value=\"{$this->valores[0]['int']}\" /><div id=\"galeria\">";
+	  $retorno = "<td colspan=\"2\"><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" value=\"{$this->valores[0]['int']}\" /><div id=\"galeria\">";
 	  if(!$consulta_imgs = $this->mysqli->query("SELECT gi.imagen_id, gi.estado, io.archivo, io.formato, gi.orden FROM galerias_imagenes gi JOIN imagenes_orig io ON gi.imagen_id = io.id WHERE gi.galeria_id = '{$this->valores[0]['int']}' ORDER BY gi.orden")) die("\n".__LINE__." mySql: ".$mysqli->error);
 	  if($total_imgs = $consulta_imgs->num_rows)
 	   {
@@ -540,7 +540,7 @@ $retorno .= "</td></tr>";
 	  if(count($atributos))
 	   {
 		$js_leng = array();
-		foreach($this->lengs AS $leng_id => $leng_cod) $js_leng[] = "${leng_id} : '${leng_cod}'";
+		foreach($this->lengs AS $leng_id => $leng_cod) $js_leng[] = "{$leng_id} : '{$leng_cod}'";
 		$retorno .= "<script type=\"text/javascript\">\n//<![CDATA[
 		var lenguajes = {".implode(", ", $js_leng)."}
 		ImgGalObj.prototype.ImgGalTablaInfo = function()
@@ -569,8 +569,8 @@ $retorno .= "</td></tr>";
 		while(list($valores_k, $valores_arr) = each($imagenes))
 		 {
 		  $this->subitem = new formCampo2('galimg', $valores_k);//$this->id);
-//<pre>".var_export($valores_arr, true)."\nmuestra{$this->valores[0]['int']}_${valores_k}</pre>
-		  $retorno .= "<table id=\"muestra_${valores_k}\" style=\"display:none;\">";
+//<pre>".var_export($valores_arr, true)."\nmuestra{$this->valores[0]['int']}_{$valores_k}</pre>
+		  $retorno .= "<table id=\"muestra_{$valores_k}\" style=\"display:none;\">";
 		  foreach($atributos AS $k => $a)
 		   {
 			$this->subitem->id = $k;
@@ -593,9 +593,9 @@ $retorno .= "</td></tr>";
 /*
 	  foreach($this->lengs AS $leng_id => $leng_cod)
 	   {
-		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][${leng_id}][]";
-		if($multi_l) $retorno .= "<li><label for=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"etiqueta_idioma\"><tt>(${leng_cod})</tt></label>&nbsp;";
-		$retorno .= "<input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_${i}\" value=\"".htmlspecialchars($this->valores[$leng_id]['string'])."\" size=\"45\" maxlength=\"100\" />";
+		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][{$leng_id}][]";
+		if($multi_l) $retorno .= "<li><label for=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"etiqueta_idioma\"><tt>({$leng_cod})</tt></label>&nbsp;";
+		$retorno .= "<input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_{$i}\" value=\"".htmlspecialchars($this->valores[$leng_id]['string'])."\" size=\"45\" maxlength=\"100\" />";
 		if($multi_l) $retorno .= "</li>";
 		$i++;
 	   }
@@ -625,9 +625,9 @@ $retorno .= "</td></tr>";
 	  //$ops = unserialize();
 	  foreach($this->extra AS $k => $v)
 	   {
-	   	$ret .= "<li><input type=\"radio\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_${i}\" value=\"${k}\"";
+	   	$ret .= "<li><input type=\"radio\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_{$i}\" value=\"{$k}\"";
 	   	if($this->valores[0]['int'] == $k) $ret .= " checked=\"checked\"";
-	   	$ret .= " /> <label for=\"{$this->campo_nombre_pref}{$this->indice}_${i}\">${v}</label></li>";
+	   	$ret .= " /> <label for=\"{$this->campo_nombre_pref}{$this->indice}_{$i}\">{$v}</label></li>";
 	   	$i++;
 	   }
 	  return $ret."</ul></td></tr>";
@@ -654,7 +654,7 @@ $retorno .= "</td></tr>";
 		   {
 		    $retorno .= "<span>".htmlspecialchars($fila[1])."<input type=\"hidden\" name=\"dato[o][{$this->id}][id][]\" value=\"{$fila[0]}\"/><sup onclick=\"borrarEtiqueta(this)\">X</sup></span> ";
 			$js .= "etiquetas['es-uy']['{$fila[1]}'] = ".strlen($fila[1]).";\n";
-//			<li><input type=\"checkbox\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" value=\"{$fila[0]}\" id=\"{$this->campo_nombre_pref}{$this->indice}${i}\"".(in_array($fila[0], $valores_op) ? ' checked="checked"' : '')." /> <label for=\"{$this->campo_nombre_pref}{$this->indice}${i}\">{$fila[1]}</label></li>";
+//			<li><input type=\"checkbox\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" value=\"{$fila[0]}\" id=\"{$this->campo_nombre_pref}{$this->indice}{$i}\"".(in_array($fila[0], $valores_op) ? ' checked="checked"' : '')." /> <label for=\"{$this->campo_nombre_pref}{$this->indice}{$i}\">{$fila[1]}</label></li>";
 			$i++;
 		   }while($fila = $cons->fetch_row());
 	   }
@@ -668,7 +668,7 @@ etiquetas['es-uy'] = {};
 </script>";
 //	  else
 //		$retorno .= "No hay opciones configuradas.";
-	  return $this->label(1)."<td>${retorno}</td></tr>";// tabindex=\"2\"
+	  return $this->label(1)."<td>{$retorno}</td></tr>";// tabindex=\"2\"
 	 }
 
 
@@ -691,7 +691,7 @@ else
 		if($fila_vista = $cons_vista->fetch_row())
 		 {
 		  $nombre_campo = $this->valores[0]['int'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
-		  $ret .= "<select name=\"{$this->campo_nombre_pref}${nombre_campo}\"><option value=\"\"> </option>";
+		  $ret .= "<select name=\"{$this->campo_nombre_pref}{$nombre_campo}\"><option value=\"\"> </option>";
 		  do
 		   {
 			$ret .= "<option value=\"{$fila_vista[0]}\"";
@@ -749,7 +749,7 @@ else
 		 {
 		  $img_id = $fila[0];
 		  $nombre_campo = $this->valores[0]['int'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
-		  $retorno .= "<span id=\"archivo{$this->indice}\">{$fila[2]}</span><img src=\"/img/b_drop_ch.png\" alt=\"Eliminar\" title=\"Eliminar\" onclick=\"borrarOpArch(this)\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>${etiqueta}</span></button>";
+		  $retorno .= "<span id=\"archivo{$this->indice}\">{$fila[2]}</span><img src=\"/img/b_drop_ch.png\" alt=\"Eliminar\" title=\"Eliminar\" onclick=\"borrarOpArch(this)\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>{$etiqueta}</span></button>";
 		 }
 		else
 		 {
@@ -761,7 +761,7 @@ else
 			//$img = "/icono/imagenes/{$fila[1]}";
 			//$archivo_nombre = "{$fila[2]}<img src=\"/img/b_drop_ch.png\" alt=\"Eliminar\" title=\"Eliminar\" onclick=\"alert('esto va a eliminar el archivo')\" />";
 			$nombre_campo = "[m][{$this->id}][{$acons[$img_id]}]";
-			$retorno .= "<li><span id=\"archivo{$this->indice}_${i}\">{$fila[2]}</span><img src=\"/img/b_drop_ch.png\" alt=\"Eliminar\" title=\"Eliminar\" onclick=\"borrarOpArch(this)\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_${i}\" value=\"{$img_id}\" /></li>";
+			$retorno .= "<li><span id=\"archivo{$this->indice}_{$i}\">{$fila[2]}</span><img src=\"/img/b_drop_ch.png\" alt=\"Eliminar\" title=\"Eliminar\" onclick=\"borrarOpArch(this)\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}_{$i}\" value=\"{$img_id}\" /></li>";
 			$i++;
 		   }while($fila = $cons->fetch_row());
 		  $retorno .= "</ul><a onclick=\"agAdjunto(this.previousSibling, {$this->id}, '/subir_archivo', {$this->indice})\">Agregar</a>";//onclick=\"agregarOp('{$this->tipo}', {$this->subtipo}, this, {$this->id}, '{$this->campo_nombre_pref}', '{$pref}')\"
@@ -774,11 +774,11 @@ else
 		$etiqueta = "Agregar";
 		$nombre_campo = "[n][{$this->id}][]";
 	   }
-	  //$retorno = $this->label(1)."<td><pre>SELECT id, archivo, nombre FROM `archivos` WHERE `id` = '{$valor}' LIMIT 1\n".var_export($this->valores, true)."</pre><span id=\"archivo{$this->indice}\">${archivo_nombre}</span> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>${etiqueta}</span></button><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /></td>";
+	  //$retorno = $this->label(1)."<td><pre>SELECT id, archivo, nombre FROM `archivos` WHERE `id` = '{$valor}' LIMIT 1\n".var_export($this->valores, true)."</pre><span id=\"archivo{$this->indice}\">{$archivo_nombre}</span> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>{$etiqueta}</span></button><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /></td>";
 	  if(empty($retorno))
-		$retorno = $this->unico ? "<span id=\"archivo{$this->indice}\">{$fila[2]}</span><img src=\"img/trans\" alt=\"\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>${etiqueta}</span></button>" : "<ul id=\"lista_{$this->indice}\"></ul><a onclick=\"agAdjunto(this.previousSibling, {$this->id}, '/subir_archivo', {$this->indice})\">Agregar</a>";
+		$retorno = $this->unico ? "<span id=\"archivo{$this->indice}\">{$fila[2]}</span><img src=\"img/trans\" alt=\"\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$img_id}\" /> <button type=\"button\" onclick=\"agAdjunto(this, {$this->id}, '/subir_archivo', {$this->indice})\"><span>{$etiqueta}</span></button>" : "<ul id=\"lista_{$this->indice}\"></ul><a onclick=\"agAdjunto(this.previousSibling, {$this->id}, '/subir_archivo', {$this->indice})\">Agregar</a>";
 
-	  return $this->label(1)."<td>${retorno}</td>";
+	  return $this->label(1)."<td>{$retorno}</td>";
 	  //return $retorno;
      }
 
@@ -789,7 +789,7 @@ else
 	  if($fila_vista = $cons_vista->fetch_row())
 	   {
 	   	$nombre_campo = $this->valores[0]['int'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
-	    $ret = $this->label(1)."<td><select name=\"{$this->campo_nombre_pref}${nombre_campo}\">";
+	    $ret = $this->label(1)."<td><select name=\"{$this->campo_nombre_pref}{$nombre_campo}\">";
 	    do
 	     {
 		  $ret .= "<option value=\"{$fila_vista[0]}\"";
@@ -823,7 +823,7 @@ else
 	   {
 		//$nombre_campo = $this->valores[0]['int'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
 		$nombre_campo = "[m][{$this->id}][{$this->valores[0]['id']}]";
-		return $this->label(1)."<td><input type=\"text\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$this->valores[0]['int']}\" /> <select name=\"extra[{$this->id}]\"><option value=\"0\"> </option><option value=\"1\">Impares</option><option value=\"2\">Pares</option></select></td>";
+		return $this->label(1)."<td><input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$this->valores[0]['int']}\" /> <select name=\"extra[{$this->id}]\"><option value=\"0\"> </option><option value=\"1\">Impares</option><option value=\"2\">Pares</option></select></td>";
 	   }
      }
     // área
@@ -901,7 +901,7 @@ $ret .= "
 	  // {
 		//$nombre_campo = $this->valores[0]['int'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
 		$nombre_campo = "[m][{$this->id}][{$this->valores[0]['id']}]";
-		return $this->label(1)."<td><input type=\"text\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$this->valores[0]['int']}\" /> <select name=\"extra[{$this->id}]\"><option value=\"0\"> </option><option value=\"1\">Impares</option><option value=\"2\">Pares</option></select></td>";
+		return $this->label(1)."<td><input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$this->valores[0]['int']}\" /> <select name=\"extra[{$this->id}]\"><option value=\"0\"> </option><option value=\"1\">Impares</option><option value=\"2\">Pares</option></select></td>";
 	  // }
      }
 
@@ -909,7 +909,7 @@ $ret .= "
 	else
 	 {
 	  $nombre_campo = $this->valores[0] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
-	  return $this->label(2)."<td><input type=\"text\" name=\"{$this->campo_nombre_pref}${nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}\" value=\"{$this->valores[0]['int']}\" size=\"5\" maxlength=\"9\" /></td>";
+	  return $this->label(2)."<td><input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}\" value=\"{$this->valores[0]['int']}\" size=\"5\" maxlength=\"9\" /></td>";
 	 }
    }
 
@@ -934,7 +934,7 @@ $ret .= "
 	   {
 	    $prot_str = "<select name=\"prot[{$this->id}]\">";
 	    foreach($prot AS $prot_k => $prot_v)
-		  $prot_str .= "<option value=\"${prot_k}\"{$sel_prot[$prot_k]}>${prot_arr[$prot_k]}</option>";
+		  $prot_str .= "<option value=\"{$prot_k}\"{$sel_prot[$prot_k]}>{$prot_arr[$prot_k]}</option>";
 	    $prot_str .= "</select>";
 	   }
 
@@ -949,7 +949,7 @@ $ret .= "
 	   {
  		$retorno .= '
   <div>
-   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'],\'**\',\'**\',\'Texto en negrita\')" title="Texto en negrita"><img src="/img/silk/text_bold" alt="Texto en negrita" /></button>
+   <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'],\'**\',\'**\',\'Texto en negrita\')" title="Texto en negrita"><img src="img/silk/text_bold" alt="Texto en negrita" /></button>
 </div>';
 /*
    <button type="button" onclick="insertTags(actual[\''.$this->campo_id_pref.$this->indice.'_\'] ,\'//\',\'//\',\'Texto en cursiva\')" title="Texto en cursiva"><img src="/img/silk/text_italic" alt="Texto en cursiva" /></button>
@@ -974,13 +974,13 @@ $ret .= "
 	  $tot_lengs = count($this->lenguajes);
 	  foreach($this->lenguajes AS $leng_id => $leng)
 	   {
-		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][${leng_id}][]";
+		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][{$leng_id}][]";
 		$retorno .= "<li>";
 		if($tot_lengs > 1)
-		  $retorno .= "<label id=\"p{$this->campo_id_pref}{$this->indice}_${i}\" for=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"etiqueta_idioma${seleccionado}\" onclick=\"mostrarTxt('{$this->campo_id_pref}{$this->indice}_', ${i})\">{$leng[0]}</label>";
+		  $retorno .= "<label id=\"p{$this->campo_id_pref}{$this->indice}_{$i}\" for=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"etiqueta_idioma{$seleccionado}\" onclick=\"mostrarTxt('{$this->campo_id_pref}{$this->indice}_', {$i})\">{$leng[0]}</label>";
 
 		$retorno .= "
-<textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"areadetexto\" rows=\"20\" cols=\"55\"{$estilo} lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\">".htmlspecialchars($this->valores[$leng_id]['text'])."</textarea></li>";
+<textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"areadetexto\" rows=\"20\" cols=\"55\"{$estilo} lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\">".htmlspecialchars($this->valores[$leng_id]['text'])."</textarea></li>";
 		$i++;
 		$estilo = " style=\"display:none;\"";
 		$seleccionado = "";
@@ -1011,7 +1011,7 @@ $ret .= "
 	  else
 	   {
 	    $prot_str = "<select name=\"prot[{$this->id}]\">";
-	    foreach($prot AS $prot_k => $prot_v) $prot_str .= "<option value=\"${prot_k}\"{$sel_prot[$prot_k]}>${prot_arr[$prot_k]}</option>";
+	    foreach($prot AS $prot_k => $prot_v) $prot_str .= "<option value=\"{$prot_k}\"{$sel_prot[$prot_k]}>{$prot_arr[$prot_k]}</option>";
 	    $prot_str .= "</select>";
 	   }
 
@@ -1026,8 +1026,8 @@ $ret .= "
 	  $seleccionado = " seleccionado";
 	  foreach($this->lenguajes AS $leng_id => $leng)
 	   {
-		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][${leng_id}][]";
-		$retorno .= "<li><label id=\"p{$this->campo_id_pref}{$this->indice}_${i}\" for=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"etiqueta_idioma${seleccionado}\" onclick=\"mostrarTxt('{$this->campo_id_pref}{$this->indice}_', ${i})\">{$leng[0]}</label><textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_${i}\" class=\"areadetexto\" rows=\"20\" cols=\"55\"{$estilo} lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\">".htmlspecialchars($this->valores[$leng_id]['text'])."</textarea></li>";
+		$nombre_campo = $this->valores[$leng_id] ? "[m][{$this->id}][{$this->valores[$leng_id]['id']}]" : "[n][{$this->id}][{$leng_id}][]";
+		$retorno .= "<li><label id=\"p{$this->campo_id_pref}{$this->indice}_{$i}\" for=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"etiqueta_idioma{$seleccionado}\" onclick=\"mostrarTxt('{$this->campo_id_pref}{$this->indice}_', {$i})\">{$leng[0]}</label><textarea name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_id_pref}{$this->indice}_{$i}\" class=\"areadetexto\" rows=\"20\" cols=\"55\"{$estilo} lang=\"{$leng[0]}\" xml:lang=\"{$leng[0]}\" dir=\"{$leng[1]}\">".htmlspecialchars($this->valores[$leng_id]['text'])."</textarea></li>";
 		$i++;
 		$estilo = " style=\"display:none;\"";
 		$seleccionado = "";
@@ -1063,7 +1063,7 @@ return "<td colspan=\"2\">num {$this->subtipo}</td></tr>";
 	 }
 	else
 	  $valor = $this->valores[0]['num'];
-	return $this->label(2)."<td>${simbolo_izq}<input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$valor}\" size=\"10\" />${simbolo_der}</td>";// tabindex=\"2\"
+	return $this->label(2)."<td>{$simbolo_izq}<input type=\"text\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" id=\"{$this->campo_nombre_pref}{$this->indice}\" value=\"{$valor}\" size=\"10\" />{$simbolo_der}</td>";// tabindex=\"2\"
    }
  }
 

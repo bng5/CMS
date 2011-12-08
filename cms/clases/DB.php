@@ -22,10 +22,16 @@ class DB extends PDO {
 	* @return DB
 	*/
 	public static function instancia() {
+		return self::instance();
+	}
+
+    /**
+     *
+     * @return DB
+     */
+	public static function instance() {
 		if(!isset(self::$_instancia))
-			self::$_instancia = new self;
+			self::$_instancia = new self();
 		return self::$_instancia;
 	}
 }
-
-?>
