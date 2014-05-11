@@ -115,8 +115,7 @@ function celda(color)
   return td;
  }
 
-obtenerPosAbsoluta = function(el)
- {
+obtenerPosAbsoluta = function(el) {
   var SL = 0, ST = 0;
   var is_div = /^div$/i.test(el.tagName);
   if (is_div && el.scrollLeft)

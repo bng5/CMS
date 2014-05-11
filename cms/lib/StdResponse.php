@@ -164,7 +164,7 @@ class StdResponse {
 	public function setException($codigo, $mensaje = false) {
 		$this->excepcion = $this->mensajesTxt['mensajes'][$codigo][1];
 		$this->mensajes[$codigo] = (object) array('cod' => $codigo, 'description' => ($mensaje ? $mensaje : $this->mensajesTxt['mensajes'][$codigo][0]));
-   }
+    }
 
     /**
      *

@@ -1,8 +1,8 @@
 <?php
 
-header("Content-Type: text/plain; charset=UTF-8");
+header("Content-Type: text/html; charset=UTF-8");
 
-require_once('inc/iniciar.php');
+require_once('cms/config.php');
 //$secciones = new adminsecciones();
 require('inc/ad_sesiones.php');
 

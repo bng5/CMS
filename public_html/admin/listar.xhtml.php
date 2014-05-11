@@ -339,13 +339,14 @@ if($seccion = DB_Secciones::obtenerSeccion(1, array('id' => (int) $_REQUEST['sec
 			}
 			else {
 				if(!$mysqli->query("UPDATE items_a_categorias SET orden = (orden - 1) WHERE orden > {$m_orden[1]} AND orden <= {$m_orden[2]} AND categoria_id = {$cat}"))
-					echo "\n".__LINE__.": ".$mysqli-error;}
-			}
-			elseif($m_orden[1] > $m_orden[2]) {// se mueve hacia arriba
-				if($orden_prov_bool) {
-					if(!$mysqli->query("UPDATE items SET orden = (orden + 1) WHERE orden < {$m_orden[1]} AND orden >= {$m_orden[2]} AND seccion_id = {$seccion_id}"))
-						echo "\n".__LINE__.": ".$mysqli-error;
-				}
+					echo "\n".__LINE__.": ".$mysqli-error;
+            }
+        }
+        elseif($m_orden[1] > $m_orden[2]) {// se mueve hacia arriba
+            if($orden_prov_bool) {
+                if(!$mysqli->query("UPDATE items SET orden = (orden + 1) WHERE orden < {$m_orden[1]} AND orden >= {$m_orden[2]} AND seccion_id = {$seccion_id}"))
+                    echo "\n".__LINE__.": ".$mysqli-error;
+            }
 			else {
 				if(!$mysqli->query("UPDATE items_a_categorias SET orden = (orden + 1) WHERE orden < {$m_orden[1]} AND orden >= {$m_orden[2]} AND categoria_id = {$cat}"))
 					echo "\n".__LINE__.": ".$mysqli-error;

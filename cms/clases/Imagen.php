@@ -64,7 +64,7 @@ class Imagen {
 		}
 		else {
 			if(!$this->errorno)
-					$this->errorno = 5;
+                $this->errorno = 5;
 			$this->ancho = 200;
 			$this->alto = 150;
 			$this->fuente = imagecreate($this->ancho, $this->alto);

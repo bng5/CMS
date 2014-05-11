@@ -287,8 +287,7 @@ valores: ".var_export($this->valores, true)."
 	 }
    }
 
-  private function campodate()
-   {
+  private function campodate() {
 	global $texto;
 	// fecha
 	if($this->valores[0]['date'] == null && $this->extra['current'])
@@ -316,10 +315,10 @@ valores: ".var_export($this->valores, true)."
 	// onclick=\"return showCalendar('fecha_fin', '%A, %B %e, %Y');\"
 
 	$nombre_campo = $this->valores[0]['date'] ? "[m][{$this->id}][{$this->valores[0]['id']}]" : "[n][{$this->id}][]";
-	return $this->label(1)."<td><span id=\"mostrar_fecha{$this->indice}\">${fechaMst}</span>&nbsp;&nbsp;<img src=\"/img/icono_calendario\" id=\"tn_calendario{$this->indice}\" style=\"cursor: pointer;\" title=\"Abrir calendario\" alt=\"Abrir calendario\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" value=\"{$valor}\" id=\"fecha{$this->indice}\" />
+	return $this->label(1)."<td><span id=\"mostrar_fecha{$this->indice}\">{$fechaMst}</span>&nbsp;&nbsp;<img src=\"/img/icono_calendario\" id=\"tn_calendario{$this->indice}\" style=\"cursor: pointer;\" title=\"Abrir calendario\" alt=\"Abrir calendario\" /><input type=\"hidden\" name=\"{$this->campo_nombre_pref}{$nombre_campo}\" value=\"{$valor}\" id=\"fecha{$this->indice}\" />
 <script type=\"text/javascript\">
 //<![CDATA[
-Calendar.setup({inputField : \"fecha{$this->indice}\", ifFormat : \"${formato}\", displayArea : \"mostrar_fecha{$this->indice}\", daFormat : \"${formatoMst}\", button : \"tn_calendario{$this->indice}\", showsTime : ${mostrarHora}});
+Calendar.setup({inputField : \"fecha{$this->indice}\", ifFormat : \"{$formato}\", displayArea : \"mostrar_fecha{$this->indice}\", daFormat : \"{$formatoMst}\", button : \"tn_calendario{$this->indice}\", showsTime : {$mostrarHora}});
 //]]>
 </script></td>
 </tr>";
